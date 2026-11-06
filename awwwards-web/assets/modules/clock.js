@@ -35,7 +35,7 @@ AW.register('clock', function (el, o, ctx) {
   }
   var hour = node('line', { x1: 100, y1: 100, x2: 100, y2: 48, stroke: 'currentColor', 'stroke-width': 3, 'stroke-linecap': 'round' });
   var minute = node('line', { x1: 100, y1: 100, x2: 100, y2: 22, stroke: 'currentColor', 'stroke-width': 1.5, 'stroke-linecap': 'round' });
-  var second = node('line', { x1: 100, y1: 112, x2: 100, y2: 14, stroke: 'var(--accent)', 'stroke-width': 1, 'stroke-linecap': 'round' });
+  var second = node('line', { x1: 100, y1: 112, x2: 100, y2: 14, style: 'stroke: var(--accent)', 'stroke-width': 1, 'stroke-linecap': 'round' });
   svg.appendChild(hour); svg.appendChild(minute); svg.appendChild(second);
   svg.appendChild(node('circle', { cx: 100, cy: 100, r: 3, fill: 'currentColor' }));
   el.appendChild(svg);

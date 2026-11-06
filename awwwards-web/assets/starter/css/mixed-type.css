@@ -1,0 +1,26 @@
+/* mixed-type.css — 句内混排：<em> 衬线斜体、<strong> 粗体展示字、<i class="script"> 手写体。
+ * 字体变量在 aw-base.css 里定义，这里不重复。 */
+
+em,
+strong,
+i.script {
+  font-size: 1em;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+strong {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+}
+
+i.script {
+  font-family: var(--font-script);
+  font-style: normal;
+}

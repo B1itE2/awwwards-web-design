@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module test 2</title>
+<link rel="stylesheet" href="../css/aw-base.css">
+<link rel="stylesheet" href="../css/mixed-type.css">
+<style>
+  .blk { min-height: 90vh; padding: 15vh var(--margin); position: relative; }
+  .aw-track { display: flex; gap: 24px; }
+  .card { flex: none; width: 30vw; height: 50vh; background: var(--ink); color: var(--bg); padding: 24px; display: block; }
+  #t-hero { height: 100vh; display: flex; align-items: flex-end; padding: var(--margin); color: #fff; }
+  #menu { display: flex; flex-direction: column; justify-content: center; padding: var(--margin); gap: 0.2em; }
+  #menu a { font-family: var(--font-display); font-weight: 800; font-size: 8vw; line-height: 1; letter-spacing: -0.04em; }
+  .list li { list-style: none; border-top: 1px solid var(--line); padding: 2vh 0; font-size: 4vw; font-family: var(--font-display); font-weight: 800; }
+</style>
+</head>
+<body>
+<div class="corners"><div class="corner corner--tr t-meta"><button id="t-menu-btn" data-aw="menu" data-aw-target="#menu">Menu</button></div></div>
+<nav id="menu"><a href="#t-fit">Work</a><a href="#t-arc">Studio</a><a href="#t-drag">Contact</a></nav>
+
+<section data-aw="hero-cycle" data-aw-interval="1" data-aw-duration="0.4" id="t-hero">
+  <div class="aw-media">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23345'/%3E%3C/svg%3E" alt="">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23534'/%3E%3C/svg%3E" alt="">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23453'/%3E%3C/svg%3E" alt="">
+  </div>
+  <h1 class="t-mega">ANTARCTICA</h1>
+</section>
+
+<section class="blk"><p class="t-title">A studio for <em>quiet</em> things, built with <strong>care</strong> and a little <i class="script">play</i>.</p>
+  <p style="margin-top:4vh"><a href="#" class="t-title" data-aw="hover-swap" id="t-swap">About us</a></p></section>
+
+<section class="blk"><ul class="list" data-aw="hover-preview" id="t-list">
+  <li data-img="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23a33'/%3E%3C/svg%3E">North Pavilion</li>
+  <li data-img="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%233a3'/%3E%3C/svg%3E">Paper &amp; Stone</li>
+</ul></section>
+
+<section class="blk" id="t-arc-wrap"><div data-aw="arc-text" data-aw-radius="120" data-aw-spin="180" id="t-arc">THREE REASONS TO CHOOSE ERA — </div>
+  <div data-aw="rotate" data-aw-turns="1" id="t-rot" style="width:120px;height:120px;border-radius:50%;border:2px solid var(--ink);margin-top:4vh;position:relative"><span style="position:absolute;top:4px;left:50%;width:2px;height:20px;background:var(--ink)"></span></div></section>
+
+<section class="blk"><div data-aw="dot-matrix" data-aw-text="opal" id="t-dot" style="font-family:var(--font-display)">opal</div></section>
+
+<section class="blk" id="t-drag-wrap"><div data-aw="drag-gallery" id="t-drag"><div class="aw-track">
+  <a class="card" href="#clicked" id="t-card1">1</a><div class="card">2</div><div class="card">3</div><div class="card">4</div><div class="card">5</div>
+</div></div></section>
+
+<footer class="blk" style="min-height:60vh"><div data-aw="fit-text" class="t-display" id="t-fit">WHITE DESERT</div></footer>
+
+<script src="../../vendor/gsap.min.js"></script>
+<script src="../../vendor/ScrollTrigger.min.js"></script>
+<script src="../../vendor/SplitText.min.js"></script>
+<script src="../../vendor/lenis.min.js"></script>
+<script src="../js/aw-core.js"></script>
+<script src="../../modules/hero-cycle.js"></script>
+<script src="../../modules/hover-swap.js"></script>
+<script src="../../modules/hover-preview.js"></script>
+<script src="../../modules/arc-text.js"></script>
+<script src="../../modules/rotate.js"></script>
+<script src="../../modules/dot-matrix.js"></script>
+<script src="../../modules/drag-gallery.js"></script>
+<script src="../../modules/fit-text.js"></script>
+<script src="../../modules/menu.js"></script>
+</body>
+</html>
