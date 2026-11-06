@@ -9,8 +9,8 @@ awwwards-web 是一个给 Claude Code 使用的 skill，帮助不会写代码的
 ## 安装
 
 ```bash
-git clone https://github.com/<你的用户名>/awwwards-web.git
-cp -r awwwards-web/awwwards-web ~/.claude/skills/
+git clone https://github.com/B1itE2/awwwards-web-design.git
+cp -r awwwards-web-design/awwwards-web ~/.claude/skills/
 ```
 
 然后重启 Claude Code。也可以放到项目里的 `.claude/skills/` 下，只对该项目生效。
@@ -40,8 +40,9 @@ cp -r awwwards-web/awwwards-web ~/.claude/skills/
 ## 目录结构
 
 ```text
-awwwards-web/
+awwwards-web-design/
 ├── README.md
+├── LICENSE
 ├── docs/
 │   ├── manual.md
 │   └── images/
@@ -54,7 +55,8 @@ awwwards-web/
 
 ## 致谢与授权
 
-- 代码：MIT License
+- 作者：morebelessed（[@B1itE2](https://github.com/B1itE2)）
+- 授权：免费使用；用它做出来的网页可以商用，不需要署名。分享本 skill 请注明作者 morebelessed 和本仓库链接；未经许可不得出售或放进收费产品。详见 [LICENSE](LICENSE)。
 - 字体：Archivo、Inter、JetBrains Mono、Instrument Serif、Caveat，均为 SIL Open Font License 1.1
 - 动画库：GSAP（GSAP Standard License，免费可商用）、Lenis（MIT）
 - 设计规律提炼自 Awwwards 获奖站的公开观察。仓库中所有图片均为本项目示例页的截图，不包含任何第三方网站的素材。
