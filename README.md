@@ -1,0 +1,60 @@
+# awwwards-web
+
+Typography-first, restrained, expressive websites — no code required.
+
+awwwards-web 是一个给 Claude Code 使用的 skill，帮助不会写代码的人用自然语言做出简约、高级、有动效的静态网页。它以大字排版、克制配色和滚动叙事为核心，可以做出接近 Awwwards 获奖站气质的品牌官网、作品集、活动页和产品页。
+
+![](docs/images/style-poster.jpg) ![](docs/images/style-editorial.jpg)
+
+## 安装
+
+```bash
+git clone https://github.com/<你的用户名>/awwwards-web.git
+cp -r awwwards-web/awwwards-web ~/.claude/skills/
+```
+
+然后重启 Claude Code。也可以放到项目里的 `.claude/skills/` 下，只对该项目生效。
+
+## 怎么用
+
+1. 打开[中英双语使用手册](docs/manual.md)，看图挑一种风格和你喜欢的效果。
+2. 在 Claude Code 里说明网页用途、主要内容、风格和想要的效果，不用写代码或记模块名。
+3. 生成后双击 `index.html` 预览，再直接用自然语言提出修改。
+
+动效可以根据内容组合：一页先选一种整体风格，再挑 2–4 种重点效果，并说明各自放在哪个区块。两种整体风格不建议在同一页混用。
+
+一句话示例：
+
+> 「用海报排版型做一个独立设计展活动页，黑白为主、标题特别大，首屏标题逐词升起，底部加活动日期跑马灯；我暂时没有图片，可以先用几何图形占位。」
+
+## 包含什么
+
+- 2 种风格：海报排版型、编辑叙事型。
+- 23 个效果模块：文字、进场、叙事、图片、布局、交互、数字、实物、装饰和导航。
+- 离线可用：字体、样式、脚本和动画库均在本地，不依赖 CDN。
+
+## 使用手册
+
+完整的效果参考图、自然语言说法和常见问题见[使用手册](docs/manual.md)。
+
+## 目录结构
+
+```text
+awwwards-web/
+├── README.md
+├── docs/
+│   ├── manual.md
+│   └── images/
+└── awwwards-web/
+    ├── SKILL.md
+    ├── references/
+    ├── scripts/
+    └── assets/
+```
+
+## 致谢与授权
+
+- 代码：MIT License
+- 字体：Archivo、Inter、JetBrains Mono、Instrument Serif、Caveat，均为 SIL Open Font License 1.1
+- 动画库：GSAP（GSAP Standard License，免费可商用）、Lenis（MIT）
+- 设计规律提炼自 Awwwards 获奖站的公开观察。仓库中所有图片均为本项目示例页的截图，不包含任何第三方网站的素材。
