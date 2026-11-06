@@ -1,4 +1,4 @@
-# awwwards-web 使用手册
+# awwwards-web-design 使用手册
 
 **中文** · [English](#english-version)
 
@@ -437,7 +437,7 @@
 
 ## English Version
 
-[中文](#awwwards-web-使用手册) · **English**
+[中文](#awwwards-web-design-使用手册) · **English**
 
 ## Getting started
 

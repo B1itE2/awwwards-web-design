@@ -1,8 +1,8 @@
-# awwwards-web
+# awwwards-web-design
 
 Typography-first, restrained, expressive websites — no code required.
 
-awwwards-web 是一个给 Claude Code 使用的 skill，帮助不会写代码的人用自然语言做出简约、高级、有动效的静态网页。它以大字排版、克制配色和滚动叙事为核心，可以做出接近 Awwwards 获奖站气质的品牌官网、作品集、活动页和产品页。
+awwwards-web-design 是一个给 Claude Code 使用的 skill，帮助不会写代码的人用自然语言做出简约、高级、有动效的静态网页。它以大字排版、克制配色和滚动叙事为核心，可以做出接近 Awwwards 获奖站气质的品牌官网、作品集、活动页和产品页。
 
 ![](docs/images/style-poster.jpg) ![](docs/images/style-editorial.jpg)
 
@@ -10,7 +10,7 @@ awwwards-web 是一个给 Claude Code 使用的 skill，帮助不会写代码的
 
 ```bash
 git clone https://github.com/B1itE2/awwwards-web-design.git
-cp -r awwwards-web-design/awwwards-web ~/.claude/skills/
+cp -r awwwards-web-design/awwwards-web-design ~/.claude/skills/
 ```
 
 然后重启 Claude Code。也可以放到项目里的 `.claude/skills/` 下，只对该项目生效。
@@ -46,7 +46,7 @@ awwwards-web-design/
 ├── docs/
 │   ├── manual.md
 │   └── images/
-└── awwwards-web/
+└── awwwards-web-design/
     ├── SKILL.md
     ├── references/
     ├── scripts/

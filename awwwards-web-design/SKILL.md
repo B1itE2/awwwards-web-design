@@ -1,5 +1,5 @@
 ---
-name: awwwards-web
+name: awwwards-web-design
 description: Build minimal, high-end, Awwwards-style web pages (landing pages, portfolios, brand sites, event pages, product pages) with big typography, restrained color, smooth scroll and scroll-driven motion. Use when the user asks for a 高级感 / 简约 / 获奖级 / Awwwards 风格 / 有动效的 webpage, landing page, 官网, 作品集, or wants a page to look "like an award-winning site". Outputs a self-contained static site (HTML + CSS + JS, works offline).
 ---
 
