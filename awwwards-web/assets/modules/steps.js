@@ -6,7 +6,6 @@
  *     <div class="aw-step">…</div>
  *   </section>
  *   data-aw-distance  每条占用的滚动距离（vh），默认 100
- *   data-aw-align="left|center"  默认 left
  * 每条 .aw-step 依次成为当前项：opacity 1，其余 0.22。
  */
 AW.register('steps', function (el, o, ctx) {
@@ -31,7 +30,8 @@ AW.register('steps', function (el, o, ctx) {
   var st = ScrollTrigger.create({
     trigger: el,
     start: 'top top',
-    end: '+=' + dist + 'vh',
+    end: function () { return '+=' + Math.round(window.innerHeight * dist / 100); },  /* ScrollTrigger 不认 vh，换算成 px */
+    invalidateOnRefresh: true,
     pin: true,
     scrub: true,
     anticipatePin: 1,

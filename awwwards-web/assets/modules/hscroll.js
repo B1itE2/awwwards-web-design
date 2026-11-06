@@ -23,6 +23,7 @@ AW.register('hscroll', function (el, o, ctx) {
     };
   }
 
+  el.style.overflow = 'hidden';  /* track 比视口宽，不裁切会让整页可以横向滚动 */
   track.style.willChange = 'transform';
   function distance() { return Math.max(0, track.scrollWidth - window.innerWidth); }
   var tween = gsap.to(track, {

@@ -42,6 +42,7 @@ AW.register('theme', function (el, o, ctx) {
     trigger: el,
     start: 'top center',
     end: 'bottom center',
+    refreshPriority: -1,  /* 在钉住（pin）的区块之后再计算位置，否则页面被 pin 拉长后结束点偏早 */
     onToggle: S.update,
     onRefresh: S.update
   });

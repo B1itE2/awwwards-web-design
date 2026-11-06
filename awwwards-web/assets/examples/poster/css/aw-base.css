@@ -1,0 +1,154 @@
+/* aw-base.css — tokens, reset, grid, type scale, corner UI.
+ * 换风格只改 :root 变量（或在 <html data-theme="..."> 上覆盖），不要改类名。 */
+
+:root {
+  /* color: 2 + 1 */
+  --bg: #f2f1ee;
+  --ink: #141413;
+  --accent: #e8492b;
+  --muted: color-mix(in srgb, var(--ink) 55%, transparent);
+  --line: color-mix(in srgb, var(--ink) 14%, transparent);
+
+  /* type */
+  --font-display: "Archivo", "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: "Instrument Serif", "Fraunces", Georgia, "Songti SC", "Noto Serif SC", serif;
+  --font-script: "Caveat", "Segoe Script", "Bradley Hand", cursive;
+
+  --fs-display: clamp(64px, min(12vw, 22vh), 320px);
+  --fs-mega: clamp(72px, min(22vw, 28vh), 520px);  /* 同时受宽高约束，3 行也能放进一屏 */
+  --fs-title: clamp(36px, 5vw, 96px);
+  --fs-body: clamp(16px, 1.1vw, 18px);
+  --fs-meta: clamp(11px, 0.75vw, 13px);
+
+  --track-display: -0.05em;
+  --lh-display: 0.88;
+
+  /* layout */
+  --margin: clamp(16px, 2.5vw, 40px);
+  --gutter: clamp(12px, 1.5vw, 24px);
+  --cols: 12;
+  --section-gap: clamp(120px, 30vh, 400px);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* ≈ expo.out */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur: 0.9s;
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img, video, svg, canvas { display: block; max-width: 100%; }
+img, video { height: auto; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--ink); color: var(--bg); }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+
+/* ---------- type ---------- */
+.t-display, .t-mega, .t-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-display);
+  text-wrap: balance;
+}
+.t-display { font-size: var(--fs-display); }
+.t-mega { font-size: var(--fs-mega); letter-spacing: -0.06em; line-height: 0.8; }
+.t-title { font-size: var(--fs-title); letter-spacing: -0.03em; line-height: 1; }
+.t-body { font-size: var(--fs-body); max-width: 36ch; }
+.t-meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.t-muted { color: var(--muted); }
+.t-accent { color: var(--accent); }
+.t-upper { text-transform: uppercase; }
+
+/* ---------- grid ---------- */
+.wrap { padding-inline: var(--margin); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding-inline: var(--margin);
+}
+/* .c-{start}-{end}：按栏线放置，start 1–12，end 2–13。例：.c-7-13 = 第 7 栏到最后 */
+.c-1-2{grid-column:1/2} .c-1-3{grid-column:1/3} .c-1-4{grid-column:1/4} .c-1-5{grid-column:1/5} .c-1-6{grid-column:1/6} .c-1-7{grid-column:1/7} .c-1-8{grid-column:1/8} .c-1-9{grid-column:1/9} .c-1-10{grid-column:1/10} .c-1-11{grid-column:1/11} .c-1-12{grid-column:1/12} .c-1-13{grid-column:1/13}
+.c-2-3{grid-column:2/3} .c-2-4{grid-column:2/4} .c-2-5{grid-column:2/5} .c-2-6{grid-column:2/6} .c-2-7{grid-column:2/7} .c-2-8{grid-column:2/8} .c-2-9{grid-column:2/9} .c-2-10{grid-column:2/10} .c-2-11{grid-column:2/11} .c-2-12{grid-column:2/12} .c-2-13{grid-column:2/13}
+.c-3-4{grid-column:3/4} .c-3-5{grid-column:3/5} .c-3-6{grid-column:3/6} .c-3-7{grid-column:3/7} .c-3-8{grid-column:3/8} .c-3-9{grid-column:3/9} .c-3-10{grid-column:3/10} .c-3-11{grid-column:3/11} .c-3-12{grid-column:3/12} .c-3-13{grid-column:3/13}
+.c-4-5{grid-column:4/5} .c-4-6{grid-column:4/6} .c-4-7{grid-column:4/7} .c-4-8{grid-column:4/8} .c-4-9{grid-column:4/9} .c-4-10{grid-column:4/10} .c-4-11{grid-column:4/11} .c-4-12{grid-column:4/12} .c-4-13{grid-column:4/13}
+.c-5-6{grid-column:5/6} .c-5-7{grid-column:5/7} .c-5-8{grid-column:5/8} .c-5-9{grid-column:5/9} .c-5-10{grid-column:5/10} .c-5-11{grid-column:5/11} .c-5-12{grid-column:5/12} .c-5-13{grid-column:5/13}
+.c-6-7{grid-column:6/7} .c-6-8{grid-column:6/8} .c-6-9{grid-column:6/9} .c-6-10{grid-column:6/10} .c-6-11{grid-column:6/11} .c-6-12{grid-column:6/12} .c-6-13{grid-column:6/13}
+.c-7-8{grid-column:7/8} .c-7-9{grid-column:7/9} .c-7-10{grid-column:7/10} .c-7-11{grid-column:7/11} .c-7-12{grid-column:7/12} .c-7-13{grid-column:7/13}
+.c-8-9{grid-column:8/9} .c-8-10{grid-column:8/10} .c-8-11{grid-column:8/11} .c-8-12{grid-column:8/12} .c-8-13{grid-column:8/13}
+.c-9-10{grid-column:9/10} .c-9-11{grid-column:9/11} .c-9-12{grid-column:9/12} .c-9-13{grid-column:9/13}
+.c-10-11{grid-column:10/11} .c-10-12{grid-column:10/12} .c-10-13{grid-column:10/13}
+.c-11-12{grid-column:11/12} .c-11-13{grid-column:11/13}
+.c-12-13{grid-column:12/13}
+
+/* ---------- sections ---------- */
+.section { position: relative; padding-block: calc(var(--section-gap) / 2); }
+.screen { position: relative; min-height: 100vh; min-height: 100svh; }
+.rule { height: 1px; background: var(--line); border: 0; }
+
+/* ---------- corner UI ----------
+ * 内容区要避开四角：首屏顶部留 3×margin。深色章节由 theme 模块切换 --ink。 */
+.corners { position: fixed; inset: 0; pointer-events: none; z-index: 50; color: var(--ink); }
+.corner { position: absolute; pointer-events: auto; display: flex; gap: 1.5em; align-items: baseline; }
+.corner--tl { top: var(--margin); left: var(--margin); }
+.corner--tr { top: var(--margin); right: var(--margin); }
+.corner--bl { bottom: var(--margin); left: var(--margin); }
+.corner--br { bottom: var(--margin); right: var(--margin); }
+.corner a { position: relative; }
+.corner a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+}
+.corner a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* 页脚最后一行要高过左下/右下角标，否则会重叠 */
+.foot-clear { padding-bottom: calc(var(--margin) * 2 + 2em) !important; }  /* 工具类，必须压过页面自己的 padding 简写 */
+
+/* ---------- media ---------- */
+.media { position: relative; overflow: hidden; background: var(--line); }
+.media > img, .media > video { width: 100%; height: 100%; }
+.r-4-5 { aspect-ratio: 4 / 5; } .r-16-9 { aspect-ratio: 16 / 9; } .r-1-1 { aspect-ratio: 1 / 1; }
+
+/* ---------- motion helpers ---------- */
+/* 只在 JS 就绪后才隐藏，JS 失败时内容可读 */
+.aw-js:not(.aw-reduced) [data-aw~="reveal"]:not(.is-in) { opacity: 0; }
+/* SplitText 的行遮罩：上下留出降部空间（Q、g、p 的尾巴），再用负 margin 抵消 */
+.line-mask, .aw-line-mask { display: block; overflow: clip; padding-block: 0.06em 0.14em; margin-block: -0.06em -0.14em; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 767px) {
+  :root { --fs-display: 19vw; --fs-mega: 24vw; --section-gap: 120px; }
+  .grid > * { grid-column: 1 / -1; }
+  .corner--bl, .corner--br { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

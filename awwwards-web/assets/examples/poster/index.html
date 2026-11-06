@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Week 2026</title>
+<meta name="description" content="Form Week — four days of type, grids and graphic design. Shanghai, 21–24 November 2026.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/aw-base.css">
+<link rel="stylesheet" href="css/mixed-type.css">
+<style>
+  /* poster · 纸白 */
+  :root { --bg: #f2f1ee; --ink: #141413; --accent: #e8492b; }
+
+  .hero { display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--margin) * 3) var(--margin) 7vh; }
+  .hero__meta { display: flex; justify-content: space-between; gap: 2em; margin-bottom: 2vh; }
+  .hero .t-mega { text-transform: uppercase; }
+  .dot { display: inline-block; width: 0.62em; height: 0.62em; border-radius: 50%; background: var(--accent); vertical-align: 0.06em; margin-left: 0.08em; }
+
+  .label { padding-top: 0.6em; }
+  .band { border-block: 1px solid var(--line); padding-block: 2vh; }
+  .band span { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-display); letter-spacing: -0.05em; line-height: 1; text-transform: uppercase; padding-right: 0.35em; }
+  .band i { color: var(--accent); font-style: normal; }
+
+  .programme { display: flex; flex-direction: column; justify-content: center; height: 100vh; padding-inline: var(--margin); gap: 1.2vh; }
+  .aw-step { display: grid; grid-template-columns: 8ch 1fr; align-items: baseline; }
+  .aw-step b { font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 8.5vw, 150px); letter-spacing: -0.05em; line-height: 0.95; text-transform: uppercase; }
+
+  .slots { list-style: none; }
+  .slots li { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-block: 1.1em; }
+  .clock-col { display: flex; flex-direction: column; justify-content: center; min-height: 90vh; }
+
+  .speakers { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+  .speakers .aw-track { display: flex; gap: var(--gutter); padding-inline: var(--margin); width: max-content; }
+  .card { width: clamp(260px, 26vw, 420px); aspect-ratio: 4 / 5; border: 1px solid var(--ink); padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+  .card svg { width: 55%; align-self: center; }
+  .card h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 2.6vw, 44px); letter-spacing: -0.04em; line-height: 0.95; text-transform: uppercase; }
+
+  .num { font-family: var(--font-display); font-weight: 800; font-size: clamp(56px, 6vw, 140px);  /* 4 栏宽放得下 7 个字符 */ letter-spacing: -0.05em; line-height: 0.9; display: block; }
+
+  .cta { display: flex; justify-content: center; align-items: center; min-height: 80vh; }
+  .ticket { width: clamp(180px, 18vw, 260px); aspect-ratio: 1; border-radius: 50%; background: var(--accent); color: var(--bg); display: grid; place-items: center; font-family: var(--font-mono); font-size: var(--fs-meta); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  footer .fit { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: 0.85; text-transform: uppercase; }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1em; padding: 3vh var(--margin) var(--margin); }
+
+  #menu { display: flex; flex-direction: column; justify-content: center; padding: var(--margin); }
+  #menu a { font-family: var(--font-display); font-weight: 800; font-size: clamp(56px, 11vw, 200px); letter-spacing: -0.05em; line-height: 0.92; text-transform: uppercase; }
+  #menu a:hover { color: var(--accent); }
+
+  @media (max-width: 767px) {
+    .hero__meta { flex-direction: column; gap: 0.4em; }
+    .aw-step { grid-template-columns: 1fr; }
+    .card { width: 72vw; }
+    .stats > div { margin-bottom: 6vh; }
+  }
+</style>
+</head>
+<body data-aw="cursor">
+<div data-aw="preloader" data-aw-min="1.1"></div>
+
+<div class="corners">
+  <a class="corner corner--tl t-meta" href="#top">Form Week ’26</a>
+  <div class="corner corner--tr t-meta">
+    <a href="#tickets">Tickets</a>
+    <button data-aw="menu" data-aw-target="#menu" class="t-meta">Menu</button>
+  </div>
+  <div class="corner corner--bl t-meta">31.23° N / 121.47° E</div>
+  <div class="corner corner--br t-meta">21—24.11.2026</div>
+</div>
+
+<nav id="menu" aria-label="Main">
+  <a href="#programme">Programme</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#speakers">Speakers</a>
+  <a href="#tickets">Tickets</a>
+</nav>
+
+<main>
+  <!-- 01 首屏 -->
+  <section class="screen hero" id="top">
+    <div class="hero__meta t-meta">
+      <span>(01) Four days of type, grids &amp; graphic design</span>
+      <span>West Bund, Shanghai</span>
+    </div>
+    <h1 class="t-mega" data-aw="reveal" data-aw-on="load">Form<br>Week<span class="dot" aria-hidden="true"></span><br>2026</h1>
+  </section>
+
+  <!-- 02 宣言 -->
+  <section class="section grid">
+    <p class="t-meta c-1-4 label">(02) — Manifesto</p>
+    <h2 class="t-title c-4-13" data-aw="reveal" data-aw-split="words">Design is not decoration. It is the order we give to things.</h2>
+  </section>
+
+  <!-- 03 跑马灯 -->
+  <div class="band" data-aw="marquee" data-aw-speed="60" aria-label="Talks, workshops, exhibitions, night school">
+    <span>Talks <i>●</i> Workshops <i>●</i> Exhibitions <i>●</i> Night school <i>●</i></span>
+  </div>
+
+  <!-- 04 议程（深色章节） -->
+  <section data-aw="theme" data-aw-bg="#151514" data-aw-ink="#ecebe6" id="programme">
+    <div data-aw="steps" data-aw-distance="80">
+      <div class="programme">
+        <p class="t-meta" style="margin-bottom: 3vh">(03) — Programme</p>
+        <div class="aw-step"><span class="t-meta">Thu 21</span><b>Letters</b></div>
+        <div class="aw-step"><span class="t-meta">Fri 22</span><b>Grids</b></div>
+        <div class="aw-step"><span class="t-meta">Sat 23</span><b>Systems</b></div>
+        <div class="aw-step"><span class="t-meta">Sun 24</span><b>Print</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 日程：表盘随滚动走完一天 -->
+  <section class="section grid" id="schedule">
+    <div class="c-1-7 clock-col">
+      <p class="t-meta" style="margin-bottom: 3vh">(04) — A day at Form Week</p>
+      <div data-aw="clock" data-aw-from="10:00" data-aw-to="22:00" data-aw-show-time="true" data-aw-size="340"></div>
+    </div>
+    <div class="c-7-13 clock-col">
+      <ul class="slots t-body" style="max-width:none">
+        <li><span>10:00</span><span>Doors &amp; coffee</span></li>
+        <li><span>11:00</span><span>Morning talks</span></li>
+        <li><span>14:00</span><span>Workshops</span></li>
+        <li><span>17:00</span><span>Exhibition walk</span></li>
+        <li><span>19:30</span><span>Night school</span></li>
+        <li><span>22:00</span><span>Close</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 06 嘉宾：横向滚动 -->
+  <section data-aw="hscroll" class="speakers" id="speakers">
+    <p class="t-meta wrap" style="margin-bottom: 4vh">(05) — Speakers</p>
+    <div class="aw-track">
+      <article class="card">
+        <span class="t-meta">01 / Type</span>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="var(--ink)"/></svg>
+        <h3>Mira<br>Okafor</h3>
+      </article>
+      <article class="card">
+        <span class="t-meta">02 / Grids</span>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="96" height="96" fill="var(--ink)"/><rect x="2" y="2" width="46" height="46" fill="var(--bg)"/></svg>
+        <h3>Jonas<br>Lindqvist</h3>
+      </article>
+      <article class="card">
+        <span class="t-meta">03 / Systems</span>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 2 98 98H2Z" fill="var(--ink)"/></svg>
+        <h3>Chen<br>Yutong</h3>
+      </article>
+      <article class="card">
+        <span class="t-meta">04 / Print</span>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M2 50a48 48 0 0 1 96 0Z" fill="var(--accent)"/><path d="M2 50h96v48H2Z" fill="var(--ink)"/></svg>
+        <h3>Ana<br>Ferreira</h3>
+      </article>
+      <article class="card">
+        <span class="t-meta">05 / Letters</span>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="var(--ink)" stroke-width="4"/><circle cx="50" cy="50" r="14" fill="var(--ink)"/></svg>
+        <h3>Kenji<br>Mori</h3>
+      </article>
+      <article class="card">
+        <span class="t-meta">06 / Motion</span>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="34" width="96" height="32" fill="var(--ink)"/><rect x="34" y="2" width="32" height="96" fill="var(--ink)"/></svg>
+        <h3>Lea<br>Brunner</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- 07 数字 -->
+  <section class="section grid stats">
+    <div class="c-1-5"><span class="num" data-aw="counter" data-aw-to="42">42</span><p class="t-meta">Speakers</p></div>
+    <div class="c-5-9"><span class="num" data-aw="counter" data-aw-to="18">18</span><p class="t-meta">Workshops</p></div>
+    <div class="c-9-13"><span class="num" data-aw="counter" data-aw-to="12000" data-aw-suffix="+">12,000+</span><p class="t-meta">Visitors in 2025</p></div>
+  </section>
+
+  <!-- 08 购票 -->
+  <section class="cta" id="tickets">
+    <a class="ticket" href="mailto:tickets@formweek.example" data-aw="magnetic">Get tickets →</a>
+  </section>
+</main>
+
+<!-- 09 页脚 -->
+<footer>
+  <hr class="rule">
+  <div class="wrap" style="padding-top: 6vh">
+    <div class="fit" data-aw="fit-text">Form Week</div>
+  </div>
+  <div class="foot foot-clear t-meta">
+    <span>© 2026 Form Week</span>
+    <span>West Bund Art Center, Shanghai</span>
+    <a href="mailto:hello@formweek.example">hello@formweek.example</a>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/SplitText.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/aw-core.js"></script>
+<script src="js/modules/preloader.js"></script>
+<script src="js/modules/reveal.js"></script>
+<script src="js/modules/cursor.js"></script>
+<script src="js/modules/menu.js"></script>
+<script src="js/modules/marquee.js"></script>
+<script src="js/modules/steps.js"></script>
+<script src="js/modules/clock.js"></script>
+<script src="js/modules/hscroll.js"></script>
+<script src="js/modules/counter.js"></script>
+<script src="js/modules/fit-text.js"></script>
+<script src="js/modules/theme.js"></script>
+<script src="js/modules/magnetic.js"></script>
+</body>
+</html>
