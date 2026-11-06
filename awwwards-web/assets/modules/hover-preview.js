@@ -53,7 +53,7 @@ AW.register('hover-preview', function (el, o, ctx) {
     y = Math.max(12, y);
     if (moveTween) moveTween.kill();
     if (immediate) gsap.set(preview, { x: x, y: y });
-    else moveTween = gsap.to(preview, { x: x, y: y, duration: lag, ease: 'power3.out', overwrite: true });
+    else moveTween = gsap.to(preview, { x: x, y: y, duration: lag, ease: 'power3.out', overwrite: 'auto' });  /* 'auto' 只覆盖 x/y；true 会杀掉同元素的淡入动画 */
   }
 
   function enter(row, e) {

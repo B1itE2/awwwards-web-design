@@ -3,18 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TITLE</title>
-<meta name="description" content="DESCRIPTION">
+<title>Slow Hours — 慢时咖啡</title>
+<meta name="description" content="Slow Hours is a small coffee house in Hangzhou. Single-origin coffee, roasted on Mondays, served slowly.">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="css/aw-base.css">
 <link rel="stylesheet" href="css/mixed-type.css">
 <style>
-  /* 主题变量与页面私有样式写这里 */
+  /* editorial · 米纸 */
+  :root {
+    --bg: #efe9df; --ink: #1c1a17; --accent: #b5532e;
+    --font-display: "Instrument Serif", Georgia, "Songti SC", serif;
+    --track-display: -0.02em; --lh-display: 0.92;
+  }
+  .t-display, .t-mega, .t-title { font-weight: 400; }
+  .t-title { letter-spacing: -0.015em; line-height: 1.02; }
+  .serif-up { text-transform: uppercase; }
+
+  .hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; padding: calc(var(--margin) * 3.5) var(--margin) 6vh; }
+  .hero h1 { grid-column: 1 / 9; font-size: clamp(64px, min(10.5vw, 17vh), 260px); text-transform: uppercase; }
+  .hero h1 em { text-transform: none; font-size: 1.08em; }
+  .hero__img { grid-column: 9 / 13; position: relative; }
+  .hero__meta { grid-column: 1 / 13; display: flex; justify-content: space-between; margin-bottom: 4vh; }
+  .badge { position: absolute; left: -18%; top: -14%; color: var(--ink); }
+
+  .intro p { grid-column: 2 / 12; font-size: clamp(32px, 4.2vw, 76px); }
+  .intro p em { font-family: var(--font-display); }
+  .intro p, .intro strong { font-family: var(--font-body); font-weight: 400; letter-spacing: -0.03em; line-height: 1.08; }
+  .intro p em { letter-spacing: -0.01em; }
+
+  .wide { padding-inline: var(--margin); }
+  .wide figure { position: relative; }
+  .wide figcaption { display: flex; justify-content: space-between; margin-top: 1.2em; }
+
+  .chapter { min-height: 100vh; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-content: center; padding: 18vh var(--margin); }
+  .chapter h2 { grid-column: 1 / 11; font-size: clamp(56px, 8vw, 170px); text-transform: uppercase; }
+  .chapter .t-body { grid-column: 8 / 12; margin-top: 6vh; }
+
+  .origins { list-style: none; grid-column: 1 / 13; margin-top: 10vh; }
+  .origins li { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: baseline; border-top: 1px solid var(--line); padding-block: 2.2vh; cursor: default; }
+  .origins li:last-child { border-bottom: 1px solid var(--line); }
+  .origins .name { grid-column: 1 / 7; font-family: var(--font-display); font-size: clamp(36px, 4.4vw, 84px); line-height: 1; }
+  .origins .where { grid-column: 7 / 10; }
+  .origins .notes { grid-column: 10 / 13; text-align: right; }
+
+  .hours { min-height: 100vh; align-items: center; }
+  .hours .clock { grid-column: 2 / 7; display: flex; flex-direction: column; align-items: center; }
+  .hours .side { grid-column: 8 / 13; }
+  .hours dl { display: grid; grid-template-columns: auto 1fr; gap: 0.9em 2em; margin-top: 4vh; }
+
+  .quote { grid-column: 3 / 11; font-size: clamp(34px, 3.8vw, 72px); }
+  .quote + .t-meta { grid-column: 3 / 11; margin-top: 4vh; }
+
+  .visit { min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4vh; text-align: center; }
+  .visit a.big { font-family: var(--font-display); font-size: clamp(48px, 6vw, 120px); line-height: 1; }
+
+  .fit { font-family: var(--font-display); text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.85; }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1em; padding: 3vh var(--margin) var(--margin); }
+
+  .corner nav, .corner { gap: 1.6em; }
+
+  @media (max-width: 767px) {
+    /* 页面自定义的 12 栏网格在手机上改成单列 */
+    .hero, .chapter, .hours, .origins li { display: block; }
+    .hero__img { width: 72%; margin-left: auto; }
+    .chapter .t-body, .origins .where { margin-top: 1.5vh; }
+    .hero { padding-top: 22vh; }
+    .hero h1 { font-size: 17vw; margin-bottom: 5vh; }
+    .hero__meta { flex-direction: column; gap: 0.4em; }
+    .badge { display: none; }
+    .origins li > * { display: block; text-align: left !important; }
+    .origins .where { margin-top: 1vh; }
+    .hours .clock { margin-bottom: 6vh; }
+  }
 </style>
 </head>
-<body>
+<body data-aw="cursor">
+<div class="corners">
+  <a class="corner corner--tl t-meta" href="#top" data-aw="hover-swap" data-aw-italic="true">Slow Hours</a>
+  <nav class="corner corner--tr t-meta" aria-label="Main">
+    <a href="#coffee" data-aw="hover-swap">Coffee</a>
+    <a href="#hours" data-aw="hover-swap">Hours</a>
+    <a href="#visit" data-aw="hover-swap">Visit</a>
+  </nav>
+  <div class="corner corner--bl t-meta">慢时咖啡 · Hangzhou</div>
+  <div class="corner corner--br t-meta">Est. 2019</div>
+</div>
 
-<!-- CONTENT -->
+<main>
+  <!-- 01 首屏：衬线大字 + 竖图 + 弧形徽章 -->
+  <section class="screen hero" id="top">
+    <div class="hero__meta t-meta"><span>( I ) — A coffee house</span><span>No. 14 Baoshi Road</span></div>
+    <h1 class="t-display" data-aw="reveal" data-aw-on="load">Coffee for<br>the <em>slow</em><br>hours</h1>
+    <div class="hero__img">
+      <figure class="media r-4-5" data-aw="img-reveal" data-aw-from="bottom">
+        <img src="images/plate-cup.jpg" alt="A cup of coffee on a linen cloth, seen from above" width="1200" height="1500">
+      </figure>
+      <div class="badge" data-aw="arc-text" data-aw-radius="62" data-aw-size="11" data-aw-spin="240">Roasted on Mondays · Served slowly · </div>
+    </div>
+  </section>
+
+  <!-- 02 引言：句内混排 -->
+  <section class="section grid intro">
+    <p data-aw="reveal">We roast a little coffee every Monday, and pour it <em>slowly</em> all week — for people who still have time to <i class="script">sit</i>.</p>
+  </section>
+
+  <!-- 03 大图视差 -->
+  <section class="section wide">
+    <figure>
+      <div class="media r-16-9" data-aw="parallax" data-aw-speed="0.15">
+        <img src="images/plate-light.jpg" alt="Morning light falling across a wall" width="1920" height="1080" loading="lazy">
+      </div>
+      <figcaption class="t-meta"><span>Fig. 1 — 07:40, first light</span><span>Baoshi Road</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 04 深色章节：产地列表（悬停出图） -->
+  <section class="chapter" id="coffee" data-aw="theme" data-aw-bg="#2a0f19" data-aw-ink="#f3e8dc" data-aw-accent="#e9b44c">
+    <p class="t-meta" style="grid-column: 1 / 13; margin-bottom: 4vh">( II ) — The coffee</p>
+    <h2 class="t-display" data-aw="reveal">Three farms,<br>one roaster</h2>
+    <p class="t-body t-muted">We buy from three farms we have visited, roast in small batches, and rest the beans for a week before they reach your cup.</p>
+    <ul class="origins" data-aw="hover-preview" data-aw-width="280">
+      <li data-img="images/plate-beans.jpg"><span class="name">Yirgacheffe</span><span class="where t-meta">Ethiopia · Washed</span><span class="notes t-meta">Jasmine, lemon, black tea</span></li>
+      <li data-img="images/plate-pour.jpg"><span class="name">Huila</span><span class="where t-meta">Colombia · Honey</span><span class="notes t-meta">Red apple, cane sugar</span></li>
+      <li data-img="images/plate-cup.jpg"><span class="name">Baoshan</span><span class="where t-meta">Yunnan · Natural</span><span class="notes t-meta">Plum, cocoa, honey</span></li>
+    </ul>
+  </section>
+
+  <!-- 05 营业时间：表盘随滚动走完一天 -->
+  <section class="section grid hours" id="hours">
+    <div class="clock">
+      <div data-aw="clock" data-aw-from="8:00" data-aw-to="18:00" data-aw-show-time="true" data-aw-size="300"></div>
+    </div>
+    <div class="side">
+      <p class="t-meta">( III ) — Hours</p>
+      <h2 class="t-title" style="margin-top: 3vh" data-aw="reveal">Open from first light to the last <em>pour</em>.</h2>
+      <dl class="t-body" style="max-width: none">
+        <dt class="t-meta">Tue — Fri</dt><dd>08:00 — 18:00</dd>
+        <dt class="t-meta">Sat — Sun</dt><dd>09:00 — 18:00</dd>
+        <dt class="t-meta">Monday</dt><dd>Closed. We roast.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 06 引语 -->
+  <section class="section grid">
+    <blockquote class="quote t-title" data-aw="reveal">“The best cup is the one you didn’t have to <em>hurry</em>.”</blockquote>
+    <p class="t-meta">— Lin Qiao, roaster</p>
+  </section>
+
+  <!-- 07 到访 -->
+  <section class="visit wrap" id="visit">
+    <p class="t-meta">( IV ) — Visit</p>
+    <a class="big" href="https://map.example/slow-hours" data-aw="scribble">Find the door</a>
+    <p class="t-body t-muted">No. 14 Baoshi Road, Xihu District, Hangzhou.<br>Look for the green door next to the bookshop.</p>
+  </section>
+</main>
+
+<!-- 08 页脚 -->
+<footer>
+  <hr class="rule">
+  <div class="wrap" style="padding-top: 6vh">
+    <div class="fit" data-aw="fit-text">Slow Hours</div>
+  </div>
+  <div class="foot foot-clear t-meta">
+    <span>© 2026 Slow Hours 慢时咖啡</span>
+    <a href="mailto:hello@slowhours.example">hello@slowhours.example</a>
+  </div>
+</footer>
 
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
@@ -23,7 +178,6 @@
 <script src="js/aw-core.js"></script>
 <script src="js/modules/reveal.js"></script>
 <script src="js/modules/cursor.js"></script>
-<script src="js/modules/menu.js"></script>
 <script src="js/modules/img-reveal.js"></script>
 <script src="js/modules/parallax.js"></script>
 <script src="js/modules/theme.js"></script>

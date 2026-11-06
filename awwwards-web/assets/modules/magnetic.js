@@ -17,7 +17,7 @@ AW.register('magnetic', function (el, o, ctx) {
   function reset() {
     if (!active) return;
     active = false;
-    gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.4)', overwrite: true });
+    gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.4)', overwrite: 'auto' });
   }
   function onMove(e) {
     var r = el.getBoundingClientRect();
@@ -30,7 +30,7 @@ AW.register('magnetic', function (el, o, ctx) {
       y: (e.clientY - (r.top + r.height / 2)) * strength,
       duration: 0.3,
       ease: 'power3.out',
-      overwrite: true
+      overwrite: 'auto'
     });
   }
 

@@ -76,6 +76,7 @@
 
 - 尊重 `prefers-reduced-motion`：关闭平滑滚动和 scrub，内容直接显示。
 - 所有内容在 JS 失败时也可读（不要用 `opacity: 0` 写死在 CSS 里，交给 JS 加 class 后再隐藏）。
+- 页面里自己写的 12 栏网格（不是 `.grid` 类）不会自动折叠，必须在手机断点里改成单列。
 - 手机端（< 768px）：Display 缩到 `18–22vw`，四角 UI 只保留左上、右上，pinned 章节改为普通滚动或缩短。
 - 图片用 `loading="lazy"`，首屏图除外。
 - 动画只改 `transform` 和 `opacity`（以及 `clip-path`），不改 `width/height/top/left`。
