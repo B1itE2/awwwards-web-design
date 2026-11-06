@@ -13,6 +13,8 @@
   --font-display: "Archivo", "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, "PingFang SC", "Noto Sans SC", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: "Instrument Serif", "Fraunces", Georgia, "Songti SC", "Noto Serif SC", serif;
+  --font-script: "Caveat", "Segoe Script", "Bradley Hand", cursive;
 
   --fs-display: clamp(64px, min(12vw, 22vh), 320px);
   --fs-mega: clamp(72px, min(22vw, 28vh), 520px);  /* 同时受宽高约束，3 行也能放进一屏 */

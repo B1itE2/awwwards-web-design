@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module test</title>
+<link rel="stylesheet" href="../css/aw-base.css">
+<style>
+  .blk { min-height: 80vh; padding: 20vh var(--margin); }
+  .aw-track { display: flex; gap: 24px; padding-inline: var(--margin); }
+  .card { flex: none; width: 40vw; height: 60vh; background: var(--ink); color: var(--bg); padding: 24px; }
+  .marq span { font-family: var(--font-display); font-size: 10vw; font-weight: 800; padding-right: 0.4em; }
+</style>
+</head>
+<body data-aw="cursor">
+<section class="blk" id="t-counter"><span class="t-display" data-aw="counter" data-aw-to="12800" data-aw-suffix="+">0</span></section>
+<section class="blk" id="t-odo"><div class="t-display" data-aw="odometer" data-aw-from="1990" data-aw-to="2026"></div></section>
+<section class="blk"><div class="marq" data-aw="marquee"><span>QUIET FORM —</span></div></section>
+<section class="blk"><a href="#" class="t-title" data-aw="scribble magnetic" id="t-scrib">Watch online</a></section>
+<section class="blk"><div class="media r-16-9" data-aw="img-reveal" style="width:50vw"><svg viewBox="0 0 16 9"><rect width="16" height="9" fill="#333"/></svg></div></section>
+<section class="blk" data-aw="theme" data-aw-bg="#111110" data-aw-ink="#f2f1ee" id="t-dark1"><h2 class="t-title">Dark A</h2></section>
+<section class="blk" data-aw="theme" data-aw-bg="#2b1020" data-aw-ink="#f4e9dc" id="t-dark2"><h2 class="t-title">Dark B (adjacent)</h2></section>
+<section class="blk" id="t-after"><h2 class="t-title">Back to base</h2></section>
+<section data-aw="hscroll" id="t-h"><div class="aw-track"><div class="card">1</div><div class="card">2</div><div class="card">3</div><div class="card">4</div></div></section>
+<section class="blk"><div data-aw="parallax" data-aw-speed="0.3" class="media r-4-5" style="width:30vw"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23666'/%3E%3C/svg%3E" alt=""></div></section>
+
+<script src="../../vendor/gsap.min.js"></script>
+<script src="../../vendor/ScrollTrigger.min.js"></script>
+<script src="../../vendor/SplitText.min.js"></script>
+<script src="../../vendor/lenis.min.js"></script>
+<script src="../js/aw-core.js"></script>
+<script src="../../modules/counter.js"></script>
+<script src="../../modules/odometer.js"></script>
+<script src="../../modules/marquee.js"></script>
+<script src="../../modules/scribble.js"></script>
+<script src="../../modules/magnetic.js"></script>
+<script src="../../modules/img-reveal.js"></script>
+<script src="../../modules/theme.js"></script>
+<script src="../../modules/hscroll.js"></script>
+<script src="../../modules/parallax.js"></script>
+<script src="../../modules/cursor.js"></script>
+</body>
+</html>
