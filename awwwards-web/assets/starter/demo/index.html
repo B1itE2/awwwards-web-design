@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier No. 9</title>
+<link rel="stylesheet" href="../css/aw-base.css">
+<style>
+  .hero { display: flex; flex-direction: column; justify-content: flex-end; padding-top: calc(var(--margin) * 3); padding-bottom: 8vh; }
+  .hero .t-mega { white-space: nowrap; }
+  .clock-stage { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 100vh; }
+  .steps-stage { display: flex; flex-direction: column; justify-content: center; height: 100vh; gap: 0.4em; }
+  .aw-step { font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 7vw, 120px); letter-spacing: -0.045em; line-height: 0.95; }
+  .note { grid-column: 1 / 6; }
+</style>
+</head>
+<body>
+<div data-aw="preloader"></div>
+
+<div class="corners">
+  <div class="corner corner--tl t-meta">Atelier No. 9</div>
+  <nav class="corner corner--tr t-meta">
+    <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="corner corner--bl t-meta" id="chapter">( 01 )</div>
+  <div class="corner corner--br t-meta">Scroll ↓</div>
+</div>
+
+<section class="screen hero wrap" id="top">
+  <p class="t-meta" style="margin-bottom: 1.5em">Studio — Shanghai / 2026</p>
+  <h1 class="t-mega" data-aw="reveal" data-aw-split="lines" data-aw-on="load">FORM<br>FOLLOWS<br>QUIET.</h1>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <div class="note">
+      <p class="t-meta" style="margin-bottom: 1em">( 02 ) — Approach</p>
+      <p class="t-body" data-aw="reveal" data-aw-split="lines">我们只做一件事：把每个想法缩到一句话，然后让这句话占满整个屏幕。</p>
+    </div>
+    <div class="c-8-13">
+      <div class="media r-4-5">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%">
+          <rect width="400" height="500" fill="#141413"/>
+          <circle cx="200" cy="250" r="110" fill="none" stroke="#f2f1ee" stroke-width="1"/>
+          <circle cx="200" cy="250" r="4" fill="#e8492b"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <div class="c-1-7 clock-stage">
+      <p class="t-meta" style="margin-bottom: 1.5em">( 03 ) — Hours</p>
+      <div data-aw="clock" data-aw-from="9:00" data-aw-to="21:00" data-aw-show-time="true" data-aw-size="300"></div>
+      <p class="t-body" style="margin-top: 2em">营业时间随滚动流逝。指针走完一天，故事也讲完。</p>
+    </div>
+  </div>
+</section>
+
+<section data-aw="steps" data-aw-distance="90" id="work">
+  <div class="wrap steps-stage">
+    <p class="t-meta">( 04 ) — Selected work</p>
+    <div class="aw-step">01 &nbsp;North Pavilion</div>
+    <div class="aw-step">02 &nbsp;Paper &amp; Stone</div>
+    <div class="aw-step">03 &nbsp;Quiet House</div>
+    <div class="aw-step">04 &nbsp;The Long Table</div>
+  </div>
+</section>
+
+<section class="section wrap" id="about">
+  <h2 class="t-title" data-aw="reveal" data-aw-split="words">少即是全部。</h2>
+</section>
+
+<footer class="wrap" id="contact" style="padding-block: 8vh">
+  <hr class="rule">
+  <div style="display:flex;justify-content:space-between;padding-top:1.5em">
+    <span class="t-meta">© 2026 Atelier No. 9</span>
+    <a class="t-meta" href="mailto:hi@example.com">hi@example.com</a>
+  </div>
+</footer>
+
+<script src="../../vendor/gsap.min.js"></script>
+<script src="../../vendor/ScrollTrigger.min.js"></script>
+<script src="../../vendor/SplitText.min.js"></script>
+<script src="../../vendor/lenis.min.js"></script>
+<script src="../js/aw-core.js"></script>
+<script src="../../modules/preloader.js"></script>
+<script src="../../modules/reveal.js"></script>
+<script src="../../modules/clock.js"></script>
+<script src="../../modules/steps.js"></script>
+</body>
+</html>
