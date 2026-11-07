@@ -16,6 +16,9 @@
 | [`hero-cycle`](#hero-cycle) | 图片 | 首屏巨字固定，背景图片/视频交叉淡入并缓慢缩放 | 首屏巨字固定、背景图/视频轮换。需要 3–5 张高质量大图。 |
 | [`img-reveal`](#img-reveal) | 图片 | 图片以 inset() 裁切揭示，同时从放大状态归位 | 图片进入视口时裁切打开。一屏最多一张。 |
 | [`parallax`](#parallax) | 图片 | 随页面滚动产生不同速度的纵向视差 | 大图的轻微视差。速度 0.1–0.3，不要更大。 |
+| [`disc-carousel`](#disc-carousel) | 展示 | 钉住区块，一排倾斜的光盘随滚动斜向滚过并自转，当前光盘被手绘圈线圈住 | 一组 4–10 个封面（电影、专辑、作品集）逐个滚过。需要方形封面图；整页只用一次，占一整屏。 |
+| [`float-cards`](#float-cards) | 展示 | 一组卡片悬浮在 3D 空间里缓慢漂动，鼠标带动景深视差，往下滚时卡片朝镜头飞散 | 首屏氛围：6–16 张小卡片或图块漂在主标题下方。深色背景效果最好，卡片别太大。 |
+| [`outfit-switch`](#outfit-switch) | 展示 | 商品换装轮播：主角居中，后面几套在左侧排队渐小渐糊，右侧配件栏随之上滑替换 | 同一位置轮换 3–8 套商品/造型，右侧列出配件。主角图最好是透明底 PNG。 |
 | [`drag-gallery`](#drag-gallery) | 布局 | 横向拖拽画廊，惯性滑行并在边缘阻尼回弹 | 可拖拽的一行图片，比 hscroll 更自由，适合画廊。 |
 | [`hscroll`](#hscroll) | 布局 | 区块钉住后将纵向滚动转换为一行卡片的横向位移 | 钉住后横向浏览一组卡片（嘉宾、作品、产品）。手机端自动变成横滑。 |
 | [`theme`](#theme) | 布局 | 章节经过视口中线时平滑切换整页 CSS 颜色变量 | 章节换色。整页 1–3 个深色章节，制造节奏。 |
@@ -147,6 +150,68 @@
   data-aw-speed="0.2"   视差系数；正数慢于页面，负数反向
   data-aw-scale="1.15" 内部图片的缩放比例，用于避免移动露边
 元素内有 img 时移动图片并裁切容器，否则移动元素自身；全程 scrub。
+```
+
+## disc-carousel
+
+**钉住区块，一排倾斜的光盘随滚动斜向滚过并自转，当前光盘被手绘圈线圈住**　一组 4–10 个封面（电影、专辑、作品集）逐个滚过。需要方形封面图；整页只用一次，占一整屏。
+
+```
+用法：
+  <section data-aw="disc-carousel">
+    <div class="aw-disc-info"></div>                       可选：左上角信息区，自动放入每张盘的 meta
+    <a class="aw-disc" href="/film-a">
+      <img src="cover-a.jpg" alt="Film A">                 盘面：一张方图，或任意 HTML
+      <div class="aw-disc-meta"><h3>FILM A</h3>…</div>     可选：当前盘时显示在信息区
+    </a>
+    …
+  </section>
+  data-aw-step="55"     每张盘占用的滚动距离（vh）
+  data-aw-spin="0.35"   每切换一张盘，盘面自转的圈数
+  data-aw-tilt-x="16"   盘面前后倾角（度）
+  data-aw-tilt-y="-34"  盘面左右倾角（度），负数朝左
+  data-aw-color="var(--ink)" 圈线颜色
+  data-aw-stroke="0.28" 圈线粗细（相对盘面，0.28 ≈ 2px）
+当前盘变化时在 section 上派发 aw:disc 事件，e.detail = { index, disc }，可用来同步页面其他文字。
+滚动停下时吸附到最近一张；点侧边的盘会滚到它，点当前盘才打开链接。盘的尺寸用 CSS 变量 --disc-size 调。
+```
+
+## float-cards
+
+**一组卡片悬浮在 3D 空间里缓慢漂动，鼠标带动景深视差，往下滚时卡片朝镜头飞散**　首屏氛围：6–16 张小卡片或图块漂在主标题下方。深色背景效果最好，卡片别太大。
+
+```
+用法：
+  <div data-aw="float-cards">
+    <div class="aw-float">卡片内容（图片或 HTML）</div>
+    …（6–16 张）
+  </div>
+  data-aw-spread="1"    分布范围倍数
+  data-aw-depth="600"   景深范围（px），越大前后层次越明显
+  data-aw-mouse="1"     鼠标视差强度，0 = 关闭
+  data-aw-scatter="1"   滚过区块时朝镜头飞散的强度，0 = 关闭
+  data-aw-seed="3"      随机种子；换数字得到另一种摆法
+卡片尺寸由你的 CSS 决定；给单张卡加 data-aw-x / data-aw-y（-1~1）、data-aw-z（-1~1）可手动定位。
+```
+
+## outfit-switch
+
+**商品换装轮播：主角居中，后面几套在左侧排队渐小渐糊，右侧配件栏随之上滑替换**　同一位置轮换 3–8 套商品/造型，右侧列出配件。主角图最好是透明底 PNG。
+
+```
+用法：
+  <section data-aw="outfit-switch" data-aw-interval="3.2">
+    <article class="aw-look">
+      <h3>Midnight Magic</h3>                         套装名，显示在左上
+      <img src="look-1.png" alt="…">                   主角图：透明底 PNG 最佳
+      <ul><li><img src="hat.png" alt=""><span>Wizard hat</span></li>…</ul>   右侧配件 2–4 件
+    </article>
+    …（3–8 套）
+  </section>
+  data-aw-interval="3.2"  自动切换秒数，0 = 不自动切换
+  data-aw-queue="3"       左侧排队显示几套
+点击左侧排队的套装直接切到它；键盘 ← → 切换；鼠标悬停时暂停自动切换；离开视口时暂停。
+区块高度用 CSS 变量 --look-h 调（默认 min(78vh, 760px)）。
 ```
 
 ## drag-gallery

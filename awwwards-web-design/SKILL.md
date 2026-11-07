@@ -48,7 +48,7 @@ Write a short list, one line per screen (100vh):
 …
 ```
 
-Rules: 6–9 screens. One idea per screen. Each screen names its single protagonist (a sentence, an image, or an object). Assign modules here, not while coding. Use at most one "physical object" module (clock / odometer / rotate) per page, and only if it fits the subject (a café's opening hours → clock).
+Rules: 6–9 screens. One idea per screen. Each screen names its single protagonist (a sentence, an image, or an object). Assign modules here, not while coding. Use at most one "physical object" module (clock / odometer / rotate) and at most one pinned showcase (disc-carousel) per page, and only if it fits the subject (a café's opening hours → clock).
 
 Write real copy, in the user's language, short. No lorem ipsum, no 赋能 / 一站式 / 极致体验. Display lines: 1–4 words.
 

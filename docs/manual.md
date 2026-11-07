@@ -213,6 +213,47 @@
 
 **注意**：只做轻微视差，不要让图片快速、大幅移动。
 
+### 展示
+
+#### 光盘轮播 `disc-carousel`
+
+![光盘轮播](images/disc-carousel.jpg)
+
+**效果**：一排倾斜的光盘斜着排开，往下滚时整排向左下滑动，每张盘边滑边转；停下时吸附到最近一张，当前那张外面画出一圈手绘线，左上角换成它的名字和信息。点旁边的盘会滚到它。
+
+**适合**：电影、专辑、播客、作品集——任何有一组封面、每个都有几行信息的内容。
+
+**这样说**：
+> 「把我们的 6 部片子做成光盘，排成斜的一排，滚动时一张张转过来；当前那张用手绘线圈住，左上角显示片名、导演、年份。」
+
+**注意**：封面用方图；4–10 张最合适。整页只用一次，它会钉住一整屏。
+
+#### 换装轮播 `outfit-switch`
+
+![换装轮播](images/outfit-switch.jpg)
+
+**效果**：主角商品站在中间，后面几套在左边排队，越远越小越模糊；每隔几秒，下一套走到中间，刚才那套向右淡出，右侧的配件栏同时上滑换成新的一组，左上角的套装名跟着换。点排队的那套可以直接切过去。
+
+**适合**：服装/宠物服饰造型、家居套组、颜色系列、一个产品的多个款式。
+
+**这样说**：
+> 「做一个换装展示：5 套造型轮流走到中间，左边排队的越远越模糊，右边列出这套的 3 个配件，每 3 秒自动换一套。」
+
+**注意**：主角图最好是透明底 PNG，高度一致。每套配 2–4 个配件。
+
+#### 漂浮卡片 `float-cards`
+
+![漂浮卡片](images/float-cards.jpg)
+
+**效果**：十几张小卡片悬在 3D 空间里，各自慢慢上下浮动、轻轻翻转；鼠标移动时近的卡片动得多、远的动得少；往下滚时卡片朝镜头飞散。
+
+**适合**：App、活动、社群的首屏氛围——卡片可以是图片、色块，或写着一句话的任务卡。
+
+**这样说**：
+> 「首屏黑底，大标题下面漂着十几张卡片：有色块、有图片、有几张写着任务的白卡，鼠标动时有景深，往下滚时卡片飞散。」
+
+**注意**：深色背景最好看。卡片控制在 6–16 张，每张别太大，标题要压在卡片上面。
+
 ### 布局
 
 #### 横向拖拽画廊 `drag-gallery`
@@ -649,6 +690,47 @@ Follow four rules when combining:
 > “Add a small amount of vertical parallax to the large middle image. Keep the movement subtle, not shaky.”
 
 **Note**: keep parallax subtle rather than moving images quickly or over a large distance.
+
+### Showcase
+
+#### Disc carousel `disc-carousel`
+
+![Disc carousel](images/disc-carousel.jpg)
+
+**What you see**: a diagonal row of tilted discs. As you scroll, the row slides down-left and each disc spins as it moves. When you stop, it snaps to the nearest disc, a hand-drawn loop circles the current one, and the top-left panel switches to its title and details. Click a side disc to scroll to it.
+
+**Good for**: films, albums, podcasts, portfolios — any set of covers with a few lines of info each.
+
+**Say this**:
+> “Turn our six films into discs in a diagonal row that roll past as I scroll. Circle the current one with a hand-drawn line and show its title, director and year in the top-left.”
+
+**Note**: use square cover images; 4–10 discs work best. Use it once per page — it pins a full screen.
+
+#### Outfit switcher `outfit-switch`
+
+![Outfit switcher](images/outfit-switch.jpg)
+
+**What you see**: the hero product stands in the middle while the next looks queue on the left, smaller and blurrier the further back they are. Every few seconds the next look steps forward, the old one fades out to the right, the accessory column slides up to a new set, and the look name changes. Click a queued look to jump to it.
+
+**Good for**: fashion or pet-outfit looks, home sets, colorways, several versions of one product.
+
+**Say this**:
+> “Make an outfit showcase: five looks take turns stepping into the center, the queue on the left gets blurrier with distance, the right column lists three accessories for each look, and it changes every three seconds.”
+
+**Note**: hero images work best as transparent PNGs of similar height. Give each look 2–4 accessories.
+
+#### Floating cards `float-cards`
+
+![Floating cards](images/float-cards.jpg)
+
+**What you see**: a dozen small cards hang in 3D space, each bobbing and tilting slowly. Moving the mouse shifts near cards more than far ones, and scrolling down scatters them toward the camera.
+
+**Good for**: hero atmosphere for apps, events, and communities — cards can be images, color tiles, or short task cards.
+
+**Say this**:
+> “Black hero, with a dozen cards floating under the big title: color tiles, a few images, and some white cards with tasks written on them. Add depth when the mouse moves and scatter the cards as I scroll.”
+
+**Note**: works best on a dark background. Keep it to 6–16 small cards and keep the title above them.
 
 ### Layout
 
