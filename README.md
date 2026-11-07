@@ -4,7 +4,7 @@ Typography-first, restrained, expressive websites — no code required.
 
 awwwards-web-design 是一个给 Claude Code 使用的 skill，帮助不会写代码的人用自然语言做出简约、高级、有动效的静态网页。它以大字排版、克制配色和滚动叙事为核心，可以做出接近 Awwwards 获奖站气质的品牌官网、作品集、活动页和产品页。
 
-![](docs/images/style-poster.jpg) ![](docs/images/style-editorial.jpg)
+![](docs/images/style-poster.jpg) ![](docs/images/style-editorial.jpg) ![](docs/images/style-showcase.jpg)
 
 ## 安装
 
@@ -21,7 +21,7 @@ cp -r awwwards-web-design/awwwards-web-design ~/.claude/skills/
 2. 在 Claude Code 里说明网页用途、主要内容、风格和想要的效果，不用写代码或记模块名。
 3. 生成后双击 `index.html` 预览，再直接用自然语言提出修改。
 
-动效可以根据内容组合：一页先选一种整体风格，再挑 2–4 种重点效果，并说明各自放在哪个区块。两种整体风格不建议在同一页混用。
+动效可以根据内容组合：一页先选一种整体风格，再挑 2–4 种重点效果，并说明各自放在哪个区块。不同的整体风格不建议在同一页混用。
 
 一句话示例：
 
@@ -29,8 +29,9 @@ cp -r awwwards-web-design/awwwards-web-design ~/.claude/skills/
 
 ## 包含什么
 
-- 2 种风格：海报排版型、编辑叙事型。
-- 23 个效果模块：文字、进场、叙事、图片、布局、交互、数字、实物、装饰和导航。
+- 3 种风格：海报排版型、编辑叙事型、商品展示型。
+- 27 个效果模块：文字、进场、叙事、图片、展示、布局、交互、数字、实物、装饰和导航。
+- 3 个完整示例页：`assets/examples/` 下的 poster、editorial、showcase，双击 `index.html` 即可打开。
 - 离线可用：字体、样式、脚本和动画库均在本地，不依赖 CDN。
 
 ## 使用手册

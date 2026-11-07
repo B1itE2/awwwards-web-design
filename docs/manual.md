@@ -16,7 +16,7 @@
 
 ## 怎么组合风格和动效
 
-**动效可以自己组合，整体风格一页选一种。** 海报排版型和编辑叙事型决定字体、配色和排版气质；文字进场、滚动叙事、悬停交互等动效，可以根据内容放进同一个页面。多页面网站可以让不同页面使用不同风格。
+**动效可以自己组合，整体风格一页选一种。** 海报排版型、编辑叙事型和商品展示型决定字体、配色和排版气质；文字进场、滚动叙事、悬停交互等动效，可以根据内容放进同一个页面。多页面网站可以让不同页面使用不同风格。
 
 按这个顺序组合：
 
@@ -31,7 +31,7 @@
 
 组合时记住四条规则：
 
-- 一页一种整体风格，不要把海报排版型和编辑叙事型硬放在同一页。
+- 一页一种整体风格，不要把两种风格硬放在同一页。
 - 一屏只安排一个主要进场效果，不要给每段文字都加不同动画。
 - 表盘、里程表、旋转物件属于「实物」效果，一页最多选一个。
 - 跑马灯每页最多 1–2 条；鼠标类效果在手机上会自动关闭，横滚和固定章节会简化。
@@ -76,6 +76,25 @@
 - [轻微视差 `parallax`](#轻微视差-parallax)
 - [悬停换字 `hover-swap`](#悬停换字-hover-swap)
 - [手绘圈选 `scribble`](#手绘圈选-scribble)
+
+### 商品展示型 showcase
+
+![商品展示型](images/style-showcase.jpg)
+
+**像什么**：像逛一个安静的精品货架，东西本身是主角：光盘斜着滚过、商品一套套换上、卡片漂在空中，文字退到角落做标签。
+
+**适合**：网店首页、小品牌产品线、电影/专辑/书籍目录、手作器物、服装或宠物造型、收藏品。
+
+**这样说**：
+> 「用商品展示型，做我们陶瓷工作室的产品页，一个系列一个系列地展示。」
+> 「首屏黑底漂着几张商品小图，往下滚粉色像墨水一样晕开，然后是一排光盘一样的系列封面。」
+
+**会用到的效果**：
+- [漂浮卡片 `float-cards`](#漂浮卡片-float-cards)
+- [墨水晕开转场 `ink-reveal`](#墨水晕开转场-ink-reveal)
+- [光盘轮播 `disc-carousel`](#光盘轮播-disc-carousel)
+- [换装轮播 `outfit-switch`](#换装轮播-outfit-switch)
+- [文字进场 `reveal`](#文字进场-reveal)
 
 ## 效果
 
@@ -228,6 +247,19 @@
 
 **注意**：封面用方图；4–10 张最合适。整页只用一次，它会钉住一整屏。
 
+#### 墨水晕开转场 `ink-reveal`
+
+![墨水晕开转场](images/ink-reveal.jpg)
+
+**效果**：画面钉住，下一章节像一滴墨水从中间晕开：边缘不规则、内侧有一圈水彩一样的深边，越滚越大，直到铺满整屏。往回滚墨水会收回去。
+
+**适合**：从深色首屏进入浅色章节、从"问题"转到"答案"、品牌换季主题——一页里最重要的一次换场。
+
+**这样说**：
+> 「第一章黑底，往下滚的时候粉色像墨水一样从中间晕开，盖满整屏后进入第二章。」
+
+**注意**：一页最多用一次。墨水的颜色就是下一章的背景色，选和上一章反差大的颜色。
+
 #### 换装轮播 `outfit-switch`
 
 ![换装轮播](images/outfit-switch.jpg)
@@ -239,7 +271,7 @@
 **这样说**：
 > 「做一个换装展示：5 套造型轮流走到中间，左边排队的越远越模糊，右边列出这套的 3 个配件，每 3 秒自动换一套。」
 
-**注意**：主角图最好是透明底 PNG，高度一致。每套配 2–4 个配件。
+**注意**：主角图最好是透明底 PNG，高度一致；只有白底图也可以，说一句「图片是白底的」，会自动融进浅色背景。每套配 2–4 个配件。
 
 #### 漂浮卡片 `float-cards`
 
@@ -403,7 +435,7 @@
 
 #### 滚动旋转物件 `rotate`
 
-（暂无参考图）
+![滚动旋转物件](images/rotate.jpg)
 
 **效果**：唱片、齿轮、罗盘或徽章等圆形物件随页面滚动旋转，往回滚时同步倒转。
 
@@ -462,9 +494,9 @@
 
 内容和整体排版会保留，交互方式会适配触摸屏。鼠标类效果会自动关闭，固定章节和滚动横移会简化，内容仍然完整可看。
 
-### 可以混用两种风格吗？
+### 可以混用几种风格吗？
 
-不建议。一页只选海报排版型或编辑叙事型中的一种，再在这个风格里调整颜色、字体和内容，整体会更统一。
+不建议。一页只选海报排版型、编辑叙事型、商品展示型中的一种，再在这个风格里调整颜色、字体和内容，整体会更统一。
 
 ### 可以只改某一个效果吗？
 
@@ -494,11 +526,11 @@ Replace the site type, content, colors, effects, and asset notes with your own.
 
 ## How to combine styles and effects
 
-**You can combine effects, but choose one overall style per page.** Poster and editorial control typography, color, and layout. Text entrances, scroll stories, hover interactions, and other effects can be combined around your content. In a multi-page site, different pages may use different styles.
+**You can combine effects, but choose one overall style per page.** Poster, editorial and showcase control typography, color, and layout. Text entrances, scroll stories, hover interactions, and other effects can be combined around your content. In a multi-page site, different pages may use different styles.
 
 Combine them in this order:
 
-1. **Choose one style**: poster for big type, black and white, and an exhibition feel; editorial for a magazine feel, serif type, and brand stories.
+1. **Choose one style**: poster for big type, black and white, and an exhibition feel; editorial for a magazine feel, serif type, and brand stories; showcase when the products themselves are the hero.
 2. **Plan the content**: list sections such as the hero, introduction, work or products, details, and contact information.
 3. **Assign effects to important content**: two to four effects are usually enough, such as “word-by-word hero reveal + horizontal work gallery + number count-up + full-screen menu.”
 4. **Give Claude one complete brief**: include the style, page content, location of each effect, colors, and image availability.
@@ -509,7 +541,7 @@ Copy and adapt this combination example:
 
 Follow four rules when combining:
 
-- Use one overall style per page instead of forcing poster and editorial into the same page.
+- Use one overall style per page instead of forcing two styles into the same page.
 - Give each screen one main entrance effect rather than a different animation for every paragraph.
 - Clock, odometer, and rotating object are “physical object” effects; choose at most one per page.
 - Use no more than one or two marquees per page. Mouse-driven effects turn off on touch devices, while horizontal scrolling and pinned sections are simplified.
@@ -554,6 +586,25 @@ Follow four rules when combining:
 - [Subtle parallax `parallax`](#subtle-parallax-parallax)
 - [Hover font swap `hover-swap`](#hover-font-swap-hover-swap)
 - [Hand-drawn circle `scribble`](#hand-drawn-circle-scribble)
+
+### Showcase style showcase
+
+![Showcase style](images/style-showcase.jpg)
+
+**What it feels like**: a quiet boutique shelf where the objects are the heroes — discs roll past, products change looks, cards float in the air — and text steps back into the corners as labels.
+
+**Good for**: shop home pages, small-brand product lines, film/album/book catalogues, handmade objects, fashion or pet-outfit looks, collectibles.
+
+**Say this**:
+> “Use the showcase style for our ceramics studio's product page, presenting one collection at a time.”
+> “Black hero with a few product images floating, pink spreading like ink as I scroll, then a row of collection covers like discs.”
+
+**Effects it uses**:
+- [Floating cards `float-cards`](#floating-cards-float-cards)
+- [Ink-bleed transition `ink-reveal`](#ink-bleed-transition-ink-reveal)
+- [Disc carousel `disc-carousel`](#disc-carousel-disc-carousel)
+- [Outfit switcher `outfit-switch`](#outfit-switcher-outfit-switch)
+- [Text reveal `reveal`](#text-reveal-reveal)
 
 ## Effects
 
@@ -706,6 +757,19 @@ Follow four rules when combining:
 
 **Note**: use square cover images; 4–10 discs work best. Use it once per page — it pins a full screen.
 
+#### Ink-bleed transition `ink-reveal`
+
+![Ink-bleed transition](images/ink-reveal.jpg)
+
+**What you see**: the screen pins and the next chapter spreads from the center like a drop of ink — ragged edges, a darker watercolor rim on the inside — growing as you scroll until it fills the screen. Scrolling back pulls the ink in again.
+
+**Good for**: moving from a dark hero into a light chapter, from "the problem" to "the answer", or a seasonal brand change — the single most important scene change on a page.
+
+**Say this**:
+> “Chapter one is black. As I scroll, pink spreads from the center like ink until it covers the screen, and then chapter two begins.”
+
+**Note**: use it once per page. The ink color is the next chapter's background, so pick one that contrasts strongly with the previous chapter.
+
 #### Outfit switcher `outfit-switch`
 
 ![Outfit switcher](images/outfit-switch.jpg)
@@ -717,7 +781,7 @@ Follow four rules when combining:
 **Say this**:
 > “Make an outfit showcase: five looks take turns stepping into the center, the queue on the left gets blurrier with distance, the right column lists three accessories for each look, and it changes every three seconds.”
 
-**Note**: hero images work best as transparent PNGs of similar height. Give each look 2–4 accessories.
+**Note**: hero images work best as transparent PNGs of similar height. White-background photos also work — say “my images have white backgrounds” and they will blend into a light page. Give each look 2–4 accessories.
 
 #### Floating cards `float-cards`
 
@@ -881,7 +945,7 @@ Follow four rules when combining:
 
 #### Scroll-driven object rotation `rotate`
 
-(No reference image yet)
+![Scroll-driven object rotation](images/rotate.jpg)
 
 **What you see**: a circular object such as a record, gear, compass, or badge rotates as you scroll and reverses when you scroll back.
 
@@ -940,9 +1004,9 @@ Double-click `index.html` in the project folder to open it in a browser. To publ
 
 The content and overall layout remain, while interactions adapt to touchscreens. Mouse-driven effects turn off, and pinned sections and scroll-driven horizontal movement are simplified. All content remains available.
 
-### Can I mix both styles?
+### Can I mix styles?
 
-It is not recommended. Choose either poster or editorial for each page, then adapt its colors, fonts, and content. A multi-page site can use different styles on different pages.
+It is not recommended. Choose one of poster, editorial, or showcase for each page, then adapt its colors, fonts, and content. A multi-page site can use different styles on different pages.
 
 ### Can I change just one effect?
 

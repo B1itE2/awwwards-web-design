@@ -31,6 +31,14 @@
   .aw-float.tile i { position: absolute; inset: 18%; border-radius: 50%; background: var(--d); }
   .aw-float.tile.sq i { border-radius: 0; transform: rotate(45deg); inset: 24%; }
 
+  /* ①½ 墨水晕开（ink-reveal） */
+  .ink .aw-ink-from { background: #0b0b0b; color: #f3f1ec; display: grid; place-items: center; text-align: center; }
+  .ink .aw-ink-to { background: #e8b4ec; color: #3a1840; display: grid; place-items: center; text-align: center; overflow: hidden; }
+  .ink h2 { font-size: clamp(44px, 6vw, 120px); max-width: 12ch; margin-inline: auto; }
+  .ink .big { position: absolute; inset: 0; display: grid; place-items: center; font: 400 clamp(120px, 22vw, 380px)/1 var(--font-display); color: rgba(58,24,64,.12); letter-spacing: -0.02em; pointer-events: none; }
+  .ink .t-meta { margin-top: 3vh; }
+  .ink .aw-ink-from .t-meta { color: rgba(243,241,236,.6); }
+
   /* ② 光盘（disc-carousel） */
   .shelf .aw-disc-info h3 { font: 400 clamp(28px, 2.6vw, 44px)/1 var(--font-display); text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: .25em; margin-bottom: .6em; }
   .shelf .aw-disc-info dl { display: grid; grid-template-columns: 7em 1fr; gap: .45em 1em; font-size: var(--fs-meta); }
@@ -78,6 +86,16 @@
     <div class="t-meta"><span>A small archive of objects</span><span>Scroll ↓</span></div>
   </div>
 </section>
+
+<div class="ink" data-aw="ink-reveal">
+  <section class="aw-ink-from">
+    <div><h2 class="t-display">Most things slip away</h2><p class="t-meta">Chapter 01 · The problem</p></div>
+  </section>
+  <section class="aw-ink-to">
+    <div class="big" aria-hidden="true">47:59:02</div>
+    <div style="position:relative"><h2 class="t-display">Some are worth keeping</h2><p class="t-meta">Chapter 02 · The shelf</p></div>
+  </section>
+</div>
 
 <section class="shelf" id="shelf" data-aw="disc-carousel">
   <div class="aw-disc-info"></div>
@@ -160,6 +178,7 @@
 <script src="js/modules/float-cards.js"></script>
 <script src="js/modules/disc-carousel.js"></script>
 <script src="js/modules/outfit-switch.js"></script>
+<script src="js/modules/ink-reveal.js"></script>
 <script src="js/modules/reveal.js"></script>
 <script src="js/modules/cursor.js"></script>
 </body>

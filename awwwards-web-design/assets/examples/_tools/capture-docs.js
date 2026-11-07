@@ -62,6 +62,22 @@ async function center(p, sel) { const bb = await (await p.$(sel)).boundingBox();
   await vshot(p, 'hover-swap', { x: 1100, y: 0, width: 340, height: 90 }, 85);
   await p.close();
 
+  /* ---------- showcase ---------- */
+  p = await open(b, 'showcase/index.html');
+  await p.mouse.move(900, 560); await sleep(900);
+  await shot(p, 'style-showcase');
+  await shot(p, 'float-cards');
+  const stOf = sel => p.evaluate(s => { const t = ScrollTrigger.getAll().find(t => t.trigger.matches(s)); return [t.start, t.end]; }, sel);
+  let r = await stOf('.ink');
+  await p.evaluate(y => window.scrollTo(0, y), r[0] + (r[1] - r[0]) * 0.55); await sleep(1000); await shot(p, 'ink-reveal');
+  r = await stOf('#shelf');
+  await p.evaluate(y => window.scrollTo(0, y), r[0] + (r[1] - r[0]) * 0.4); await sleep(2200); await shot(p, 'disc-carousel');
+  await p.evaluate(y => window.scrollTo(0, y), r[0] + (r[1] - r[0]) * 0.5); await sleep(400);  // 转动中的一帧
+  await vshot(p, 'rotate', { x: 300, y: 120, width: 1000, height: 700 }, 82);
+  await p.evaluate(() => document.getElementById('vessels').scrollIntoView()); await p.mouse.move(5, 5); await sleep(4300);
+  await shot(p, 'outfit-switch');
+  await p.close();
+
   /* ---------- 单独测试页里的模块 ---------- */
   p = await open(b, '../starter/demo/modules-test.html');
   await to(p, '#t-odo', 'start', -60); await sleep(1200);

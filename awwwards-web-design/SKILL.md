@@ -34,6 +34,7 @@ Read `references/archetypes.md` and pick one. Map user words:
 |---|---|
 | 海报感 / 大字 / 黑白 / 设计感 / 展览 / 活动 / 字体 | 海报排版型 `poster` |
 | 杂志感 / 优雅 / 品牌故事 / 咖啡 / 酒店 / 生活方式 / 衬线 | 编辑叙事型 `editorial` |
+| 网店 / 商品 / 产品线 / 系列 / 目录 / 换装 / 电影或专辑合集 / 器物 | 商品展示型 `showcase` |
 
 If none fits well, pick the closer one and adapt color and fonts within its rules. Never mix two archetypes on one page.
 
@@ -48,7 +49,7 @@ Write a short list, one line per screen (100vh):
 …
 ```
 
-Rules: 6–9 screens. One idea per screen. Each screen names its single protagonist (a sentence, an image, or an object). Assign modules here, not while coding. Use at most one "physical object" module (clock / odometer / rotate) and at most one pinned showcase (disc-carousel) per page, and only if it fits the subject (a café's opening hours → clock).
+Rules: 6–9 screens. One idea per screen. Each screen names its single protagonist (a sentence, an image, or an object). Assign modules here, not while coding. Use at most one "physical object" module (clock / odometer / rotate) and at most one pinned showcase (disc-carousel) and one ink-reveal per page, and only if it fits the subject (a café's opening hours → clock).
 
 Write real copy, in the user's language, short. No lorem ipsum, no 赋能 / 一站式 / 极致体验. Display lines: 1–4 words.
 

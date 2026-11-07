@@ -11,6 +11,7 @@
  *   </section>
  *   data-aw-interval="3.2"  自动切换秒数，0 = 不自动切换
  *   data-aw-queue="3"       左侧排队显示几套
+ *   data-aw-blend="true"  图片是白底（不是透明底）时打开：用正片叠底把白底融进页面背景，页面底色要浅
  * 点击左侧排队的套装直接切到它；键盘 ← → 切换；鼠标悬停时暂停自动切换；离开视口时暂停。
  * 区块高度用 CSS 变量 --look-h 调（默认 min(78vh, 760px)）。
  */
@@ -22,6 +23,7 @@ AW.register('outfit-switch', function (el, o, ctx) {
   var interval = o.interval != null ? o.interval : 3.2;
   var queue = o.queue != null ? o.queue : 3;
   var dur = ctx.reduced ? 0 : 1.1;
+  if (o.blend) el.classList.add('aw-os-blend');
 
   if (!document.getElementById('aw-outfit-style')) {
     var css = document.createElement('style');
@@ -36,6 +38,7 @@ AW.register('outfit-switch', function (el, o, ctx) {
       '.aw-os-side>ul{position:absolute;inset:0;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(12px,3vh,32px)}' +
       '.aw-os-side li{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:var(--fs-meta,12px);color:var(--muted,#777)}' +
       '.aw-os-side img{width:min(100%,140px);aspect-ratio:1;object-fit:contain}' +
+      '.aw-os-blend .aw-os-hero,.aw-os-blend .aw-os-side img{mix-blend-mode:multiply}' +
       '@media (max-width:767px){.aw-os-stage{right:0;top:14%;bottom:24%}.aw-os-hero{left:38%;height:80%}.aw-os-side{top:auto;height:22%;width:100%}' +
         '.aw-os-side>ul{flex-direction:row;justify-content:center}.aw-os-side img{width:64px}}';
     document.head.appendChild(css);
@@ -164,6 +167,7 @@ AW.register('outfit-switch', function (el, o, ctx) {
     el.removeEventListener('mouseleave', onLeave);
     window.removeEventListener('resize', onResize);
     el.innerHTML = originalHTML;
+    el.classList.remove('aw-os-blend');
     if (!hadTabindex) el.removeAttribute('tabindex');
   };
 });
