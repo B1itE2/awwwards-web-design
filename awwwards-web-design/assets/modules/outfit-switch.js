@@ -39,7 +39,7 @@ AW.register('outfit-switch', function (el, o, ctx) {
       '.aw-os-side li{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:var(--fs-meta,12px);color:var(--muted,#777)}' +
       '.aw-os-side img{width:min(100%,140px);aspect-ratio:1;object-fit:contain}' +
       '.aw-os-blend .aw-os-hero,.aw-os-blend .aw-os-side img{mix-blend-mode:multiply}' +
-      '@media (max-width:767px){.aw-os-stage{right:0;top:14%;bottom:24%}.aw-os-hero{left:38%;height:80%}.aw-os-side{top:auto;height:22%;width:100%}' +
+      '@media (max-width:767px){.aw-os-stage{right:0;top:14%;bottom:24%}.aw-os-hero{left:auto;right:0;height:auto;width:min(100%,auto);max-height:100%;max-width:78%}.aw-os-side{top:auto;height:22%;width:100%}' +
         '.aw-os-side>ul{flex-direction:row;justify-content:center}.aw-os-side img{width:64px}}';
     document.head.appendChild(css);
   }
@@ -73,11 +73,15 @@ AW.register('outfit-switch', function (el, o, ctx) {
   /* d：0 = 当前；1..queue = 左侧排队；-1 = 刚离开（向右放大淡出） */
   function slot(d) {
     var w = stage.offsetWidth;
+    /* 排队间距按图片实际宽度算：花瓶这种窄图挤得近，宠物这种宽图拉得开 */
+    var hw = 0;
+    parts.forEach(function (p) { if (p.hero) hw = Math.max(hw, p.hero.offsetWidth); });
+    var step = Math.min(w * 0.2, Math.max(w * 0.12, hw * (ctx.isMobile ? 0.3 : 0.42)));
     if (d === 0) return { x: 0, scale: 1, blur: 0, opacity: 1, z: 50 };
-    if (d < 0) return { x: w * 0.42, scale: 1.12, blur: 0, opacity: 0, z: 60 };
-    if (d > queue) return { x: -w * (0.3 + queue * 0.17), scale: 0.3, blur: 14, opacity: 0, z: 1 };
+    if (d < 0) return { x: w * 0.18, scale: 1.06, blur: 6, opacity: 0, z: 60 };
+    if (d > queue) return { x: -(hw * 0.5 + (queue + 0.6) * step), scale: 0.3, blur: 14, opacity: 0, z: 1 };
     return {
-      x: -w * (0.2 + d * 0.12),
+      x: -(hw * 0.38 + d * step),
       scale: Math.max(0.3, 0.66 - (d - 1) * 0.11),
       blur: d === 1 ? 0 : (d - 1) * 5,
       opacity: d === 1 ? 1 : Math.max(0.35, 1 - (d - 1) * 0.28),
@@ -85,20 +89,24 @@ AW.register('outfit-switch', function (el, o, ctx) {
     };
   }
 
-  function rel(i, cur) { var d = (i - cur + n) % n; return d === n - 1 && n > 2 ? -1 : d; }
+  /* 0 = 当前，1..n-1 = 左侧排队；刚换下的那套先向右淡出，再从队尾最远处淡入，所以 3 套也能排满队 */
+  function rel(i, cur) { return (i - cur + n) % n; }
 
   var current = 0;
-  function place(cur, animate) {
+  function vars(s) { return { x: s.x, scale: s.scale, autoAlpha: s.opacity, filter: 'blur(' + s.blur + 'px)', zIndex: s.z }; }
+  function place(cur, animate, leaving) {
     parts.forEach(function (p, i) {
       if (!p.hero) return;
-      var s = slot(rel(i, cur));
-      var vars = { x: s.x, scale: s.scale, autoAlpha: s.opacity, filter: 'blur(' + s.blur + 'px)', zIndex: s.z };
-      /* 从左侧最远处重新进入队列的那张不要横穿画面 */
-      if (animate && rel(i, cur) === Math.min(queue, n - 2) && rel(i, (cur - 1 + n) % n) === -1) {
-        gsap.set(p.hero, slot(queue + 1));
+      var target = vars(slot(rel(i, cur)));
+      if (!animate) { gsap.set(p.hero, target); return; }
+      if (i === leaving) {
+        gsap.timeline()
+          .to(p.hero, Object.assign(vars(slot(-1)), { duration: dur * 0.5, ease: 'power2.in', overwrite: true }))
+          .set(p.hero, vars(slot(queue + 1)))
+          .to(p.hero, Object.assign(target, { duration: dur * 0.8, ease: 'expo.out' }));
+        return;
       }
-      if (animate) gsap.to(p.hero, Object.assign(vars, { duration: dur, ease: 'expo.inOut', overwrite: true }));
-      else gsap.set(p.hero, vars);
+      gsap.to(p.hero, Object.assign(target, { duration: dur, ease: 'expo.inOut', overwrite: true }));
     });
   }
 
@@ -115,8 +123,9 @@ AW.register('outfit-switch', function (el, o, ctx) {
         yPercent: 0, autoAlpha: 1, duration: dur * 0.9, delay: dur * 0.3, stagger: 0.08, ease: 'expo.out', overwrite: true
       });
     }
+    var leaving = current;
     current = next;
-    place(current, true);
+    place(current, true, leaving);
     restart();
   }
 

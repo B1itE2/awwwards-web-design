@@ -78,6 +78,12 @@ async function center(p, sel) { const bb = await (await p.$(sel)).boundingBox();
   await shot(p, 'outfit-switch');
   await p.close();
 
+  /* ---------- pets（白底商品图 + outfit-switch data-aw-blend） ---------- */
+  p = await open(b, 'pets/index.html');
+  await p.mouse.move(5, 895); await sleep(4200);
+  await shot(p, 'example-pets');
+  await p.close();
+
   /* ---------- 单独测试页里的模块 ---------- */
   p = await open(b, '../starter/demo/modules-test.html');
   await to(p, '#t-odo', 'start', -60); await sleep(1200);

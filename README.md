@@ -31,7 +31,7 @@ cp -r awwwards-web-design/awwwards-web-design ~/.claude/skills/
 
 - 3 种风格：海报排版型、编辑叙事型、商品展示型。
 - 27 个效果模块：文字、进场、叙事、图片、展示、布局、交互、数字、实物、装饰和导航。
-- 3 个完整示例页：`assets/examples/` 下的 poster、editorial、showcase，双击 `index.html` 即可打开。
+- 4 个完整示例页：`assets/examples/` 下的 poster、editorial、showcase、pets（白底宠物商品页），双击 `index.html` 即可打开。
 - 离线可用：字体、样式、脚本和动画库均在本地，不依赖 CDN。
 
 ## 使用手册

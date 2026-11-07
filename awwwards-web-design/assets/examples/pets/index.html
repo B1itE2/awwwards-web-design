@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Wardrobe — knitwear for small companions</title>
+<meta name="description" content="Little Wardrobe is a fictional label making knitwear and rain gear for cats and dogs. Three looks for the cold season.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/aw-base.css">
+<link rel="stylesheet" href="css/mixed-type.css">
+<style>
+  /* pets · 纯白商品页（商品展示型） */
+  :root {
+    --bg: #ffffff; --ink: #141414; --accent: #6f8a6a;
+    --font-display: "Instrument Serif", Georgia, "Songti SC", serif;
+    --track-display: -0.02em; --lh-display: 0.92;
+  }
+  .t-display, .t-title { font-weight: 400; }
+
+  #menu { display: flex; flex-direction: column; justify-content: center; padding: var(--margin); }
+  #menu a { font-family: var(--font-display); font-size: clamp(56px, 10vw, 180px); line-height: 0.95; }
+  #menu a:hover { font-style: italic; }
+
+  /* 01 首屏：换装 */
+  .hero { padding: calc(var(--margin) * 3.2) var(--margin) var(--margin); }
+  .hero__bar { display: flex; justify-content: space-between; margin-bottom: 2vh; }
+  .hero [data-aw~="outfit-switch"] { --look-h: calc(100vh - var(--margin) * 6); }
+  .hero .aw-os-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(32px, 3.4vw, 60px); letter-spacing: -0.01em; }
+  .hero .aw-os-side li span { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; font-size: 10px; }
+  .hero .aw-os-side img { border-radius: 50%; width: min(100%, 120px); }
+  .hero__price { position: absolute; left: var(--margin); bottom: calc(var(--margin) * 1.2); z-index: 30; }
+  .hero__hint { position: absolute; left: 50%; bottom: calc(var(--margin) * 1.2); transform: translateX(-50%); z-index: 30; }
+  .hero__wrap { position: relative; }
+
+  /* 02 跑马灯 */
+  .band { border-block: 1px solid var(--line); padding-block: 2.2vh; }
+  .band span { font-family: var(--font-display); font-size: clamp(56px, 8vw, 150px); line-height: 1; padding-right: 0.3em; }
+  .band em { font-style: italic; color: var(--accent); }
+
+  /* 03 宣言 */
+  .manifesto { padding: 26vh var(--margin); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+  .manifesto h2 { grid-column: 2 / 12; font-size: clamp(40px, 5.2vw, 104px); line-height: 1.02; }
+  .manifesto h2 em { font-style: italic; }
+  .manifesto .t-meta { grid-column: 2 / 6; margin-bottom: 4vh; }
+
+  /* 04 面料特写 */
+  .detail { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding: 0 var(--margin) 22vh; align-items: end; }
+  .detail figure { grid-column: 1 / 7; }
+  .detail figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .detail figcaption { display: flex; justify-content: space-between; margin-top: 1em; }
+  .detail .side { grid-column: 8 / 13; }
+  .detail h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 3.6vw, 68px); line-height: 1; margin-bottom: 5vh; }
+  .detail dl { display: grid; grid-template-columns: 9em 1fr; border-top: 1px solid var(--line); }
+  .detail dt, .detail dd { padding-block: 1.6vh; border-bottom: 1px solid var(--line); }
+  .detail dt { font-family: var(--font-mono); text-transform: uppercase; font-size: var(--fs-meta); color: var(--muted); }
+
+  /* 05 系列列表 */
+  .list { padding: 0 var(--margin) 22vh; }
+  .list__head { display: flex; justify-content: space-between; margin-bottom: 3vh; }
+  .list ul { list-style: none; }
+  .list li { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: baseline; border-top: 1px solid var(--line); padding-block: 2.4vh; cursor: default; }
+  .list li:last-child { border-bottom: 1px solid var(--line); }
+  .list .name { grid-column: 1 / 7; font-family: var(--font-display); font-size: clamp(36px, 4.6vw, 88px); line-height: 1; }
+  .list .for { grid-column: 7 / 10; }
+  .list .price { grid-column: 10 / 13; text-align: right; }
+
+  /* 06 数字 */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gutter); padding: 0 var(--margin) 24vh; }
+  .stats .num { display: block; font-family: var(--font-display); font-size: clamp(64px, 8vw, 160px); line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 1.4vh; }
+
+  /* 07 行动 */
+  .cta { min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6vh; text-align: center; padding: 0 var(--margin); }
+  .cta a.big { font-family: var(--font-display); font-size: clamp(44px, 5.4vw, 108px); line-height: 1; }
+  .cta a.big em { font-style: italic; }
+  .round { width: clamp(150px, 14vw, 210px); aspect-ratio: 1; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-family: var(--font-mono); font-size: var(--fs-meta); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  footer { padding: 0 var(--margin) var(--margin); }
+  footer .row { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-block: 2vh; }
+  footer .fit { font-family: var(--font-display); line-height: 0.82; letter-spacing: -0.03em; }
+
+  @media (max-width: 767px) {
+    .manifesto h2, .manifesto .t-meta, .detail figure, .detail .side { grid-column: 1 / -1; }
+    .detail .side { margin-top: 6vh; }
+    .list .name { grid-column: 1 / -1; } .list .for { grid-column: 1 / 7; } .list .price { grid-column: 7 / 13; }
+    .stats { grid-template-columns: 1fr; gap: 6vh; }
+    .hero__price { display: none; }
+    .hero [data-aw~="outfit-switch"] { --look-h: 74vh; }
+  }
+</style>
+</head>
+<body data-aw="cursor">
+
+<div data-aw="preloader" data-aw-min="1.1"></div>
+
+<div class="corners">
+  <div class="corner corner--tl t-meta"><a href="#top">Little Wardrobe</a></div>
+  <div class="corner corner--tr t-meta"><button data-aw="menu" data-aw-target="#menu" class="t-meta">Menu</button></div>
+</div>
+
+<nav id="menu" aria-label="Main">
+  <a href="#top">Looks</a>
+  <a href="#fabric">Fabric</a>
+  <a href="#collection">Collection</a>
+  <a href="#order">Order</a>
+</nav>
+
+<main>
+<section class="hero" id="top">
+  <div class="hero__bar t-meta"><span>( Fit )</span><span>( Preview · ← → )</span><span>( Ship )</span></div>
+  <div class="hero__wrap">
+    <div data-aw="outfit-switch" data-aw-interval="3.4" data-aw-blend="true" data-aw-queue="2">
+      <article class="aw-look">
+        <h3>Garden Turtleneck</h3>
+        <img src="images/look-cat.jpg" alt="Ginger tabby, 4 kg wearing the Garden Turtleneck">
+        <ul><li><img src="images/swatch-turtleneck.jpg" alt=""><span>Turtleneck</span></li><li><img src="images/swatch-rib-knit.jpg" alt=""><span>Rib knit</span></li><li><img src="images/swatch-cuff.jpg" alt=""><span>Sleeve cuff</span></li></ul>
+      </article>
+      <article class="aw-look">
+        <h3>Snowfield Cable</h3>
+        <img src="images/look-samoyed.jpg" alt="Samoyed, 22 kg wearing the Snowfield Cable">
+        <ul><li><img src="images/swatch-shawl-collar.jpg" alt=""><span>Shawl collar</span></li><li><img src="images/swatch-cable-knit.jpg" alt=""><span>Cable knit</span></li><li><img src="images/swatch-buttons.jpg" alt=""><span>Wood buttons</span></li></ul>
+      </article>
+      <article class="aw-look">
+        <h3>Drizzle Coat</h3>
+        <img src="images/look-corgi.jpg" alt="Corgi, 12 kg wearing the Drizzle Coat">
+        <ul><li><img src="images/swatch-buckle.jpg" alt=""><span>Brass buckle</span></li><li><img src="images/swatch-harness.jpg" alt=""><span>Leather strap</span></li><li><img src="images/swatch-waxed-cotton.jpg" alt=""><span>Waxed cotton</span></li></ul>
+      </article>
+    </div>
+    <p class="hero__price t-meta">Autumn / Winter 2026 · 3 looks</p>
+  </div>
+</section>
+
+<div class="band" data-aw="marquee" data-aw-speed="70" aria-label="Hand-knit, merino wool, made in small batches">
+  <span>Hand-knit <em>·</em></span><span>Merino wool <em>·</em></span><span>Small batches <em>·</em></span><span>Made to measure <em>·</em></span>
+</div>
+
+<section class="manifesto">
+  <p class="t-meta">( 01 ) Why</p>
+  <h2 class="t-display" data-aw="reveal" data-aw-split="words">Small bodies lose heat fast. We knit <em>slowly</em> so they stay warm longer.</h2>
+</section>
+
+<section class="detail" id="fabric">
+  <figure>
+    <div data-aw="img-reveal" data-aw-from="bottom"><img src="images/detail-cable.jpg" alt="Close-up of the cable-knit cardigan on a Samoyed"></div>
+    <figcaption class="t-meta"><span>Snowfield Cable</span><span>Fig. 02</span></figcaption>
+  </figure>
+  <div class="side">
+    <p class="t-meta" style="margin-bottom:2vh">( 02 ) Fabric</p>
+    <h3 data-aw="reveal">Twelve stitches to the inch</h3>
+    <dl>
+      <dt>Yarn</dt><dd>Undyed merino, 4-ply</dd>
+      <dt>Knit</dt><dd>Hand-cabled, 11 hours a piece</dd>
+      <dt>Care</dt><dd>Cold wash, lay flat to dry</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="list" id="collection">
+  <div class="list__head t-meta"><span>( 03 ) Collection</span><span>Hover to preview</span></div>
+  <ul data-aw="hover-preview" data-aw-width="320" data-aw-ratio="1/1">
+    <li data-img="images/look-cat.jpg"><span class="name">Garden Turtleneck</span><span class="for t-meta">Cats · XS–M</span><span class="price t-meta">¥ 380</span></li>
+    <li data-img="images/look-samoyed.jpg"><span class="name">Snowfield Cable</span><span class="for t-meta">Large dogs · L–XXL</span><span class="price t-meta">¥ 640</span></li>
+    <li data-img="images/look-corgi.jpg"><span class="name">Drizzle Coat</span><span class="for t-meta">Short legs · S–L</span><span class="price t-meta">¥ 520</span></li>
+  </ul>
+</section>
+
+<section class="stats">
+  <div><span class="num" data-aw="counter" data-aw-to="11">11</span><p class="t-meta">Hours to knit one sweater</p></div>
+  <div><span class="num" data-aw="counter" data-aw-to="38">38</span><p class="t-meta">Breeds measured</p></div>
+  <div><span class="num" data-aw="counter" data-aw-to="2400" data-aw-suffix="+">2,400+</span><p class="t-meta">Pets dressed so far</p></div>
+</section>
+
+<section class="cta" id="order">
+  <p class="t-meta">( 04 ) Order</p>
+  <a class="big" href="#order" data-aw="scribble">Send us <em>their</em> measurements</a>
+  <a class="round" href="mailto:hello@littlewardrobe.example" data-aw="magnetic" data-cursor="Mail">Start an order →</a>
+</section>
+</main>
+
+<footer>
+  <div class="row t-meta"><span>Fictional label · demo for awwwards-web-design</span><span>Photos: product mock-ups</span></div>
+  <div class="fit" data-aw="fit-text">Little Wardrobe</div>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/SplitText.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/aw-core.js"></script>
+<script src="js/modules/preloader.js"></script>
+<script src="js/modules/outfit-switch.js"></script>
+<script src="js/modules/marquee.js"></script>
+<script src="js/modules/reveal.js"></script>
+<script src="js/modules/img-reveal.js"></script>
+<script src="js/modules/counter.js"></script>
+<script src="js/modules/hover-preview.js"></script>
+<script src="js/modules/scribble.js"></script>
+<script src="js/modules/magnetic.js"></script>
+<script src="js/modules/fit-text.js"></script>
+<script src="js/modules/cursor.js"></script>
+<script src="js/modules/menu.js"></script>
+</body>
+</html>
