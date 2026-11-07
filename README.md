@@ -60,4 +60,4 @@ awwwards-web-design/
 - 授权：免费使用；用它做出来的网页可以商用，不需要署名。分享本 skill 请注明作者 morebelessed 和本仓库链接；未经许可不得出售或放进收费产品。详见 [LICENSE](LICENSE)。
 - 字体：Archivo、Inter、JetBrains Mono、Instrument Serif、Caveat，均为 SIL Open Font License 1.1
 - 动画库：GSAP（GSAP Standard License，免费可商用）、Lenis（MIT）
-- 设计规律提炼自 Awwwards 获奖站的公开观察。仓库中所有图片均为本项目示例页的截图，不包含任何第三方网站的素材。
+- 设计规律提炼自 Awwwards 获奖站的公开观察。仓库中的图片为本项目示例页截图、代码生成的占位图，以及 pets 示例使用的 AI 生成宠物图（由作者提供，可随本仓库公开使用），不包含任何第三方网站的素材。
